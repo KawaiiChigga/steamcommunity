@@ -1,0 +1,199 @@
+.header
+{
+	width:100%;
+	height:125px;
+	float:top;
+}
+.header-top
+{
+	width:100%;
+	height:40px;
+	text-align:right;
+	background-color:#F0F0E9;
+	float:left;
+	padding-top:7px;
+	padding-left:10px;
+	padding-right:10px;
+}
+.header-top table td
+{
+	padding-left:10px;
+}
+.header-bottom
+{
+	width:100%;
+	float:left;
+	height:85px;
+}
+.header-bottom-left
+{
+	width:25%;
+	height:100%;
+	float:left;
+}
+.header-bottom-left img
+{
+	padding:10px;
+}
+.header-bottom-mid
+{
+	width:50%;
+	height:100%;
+	float:left;
+	padding:3%;
+}
+.suggest
+{
+	padding-left:5%;
+	text-align:left;
+}
+.header-bottom-right
+{
+	width:25%;
+	height:100%;
+	float:left;
+	padding-top:20px;
+	text-align:center;
+}
+.header-bottom-right a
+{
+	text-decoration: none;
+	color:black;
+}
+.btn-info
+{
+	color:#fff;
+	background-color:#e6e6e6;
+	border-color:#e6e6e6;
+}
+.btn-info:hover
+{
+	color:#fff;
+	background-color:#a6a6a6;
+	border-color:#a6a6a6;
+}
+.btn-info.active.focus,
+.btn-info.active:hover,
+.btn-info:active:focus,
+.btn-info:active:hover
+{
+	color:#fff;
+	background-color:#a6a6a6;
+	border-color:#a6a6a6;
+}
+.nav
+{
+	width:20%;
+	float:left;
+	padding-left:5px;
+	padding-right:5px;
+}
+.nav a
+{
+	text-decoration: none;
+	color:black;
+}
+.nav table
+{
+	width:95%;
+}
+.nav table td
+{
+	padding:10px;
+}
+.nav table td:hover
+{
+	background-color:#A0A0E9;
+}
+#active
+{
+	background-color:#A0A0E9;
+}
+.nav a
+{
+	text-decoration:none;
+}
+.content
+{
+	width:80%;
+	float:left;
+	padding:15px;
+	min-height:500px;
+}
+.content table td
+{
+	padding:5px;
+}
+.kateg th
+{
+	text-align:center;
+	width:10em;
+}
+.stock
+{
+	width:3em;
+}
+.carousel,
+.item,
+.active
+{
+    height: 100%;
+}
+.carousel-inner 
+{
+    height: 100%;
+}
+.footer
+{
+	float:bottom;
+	clear:both;
+	width:100%;
+	height:190px;
+}
+.footer-top
+{
+	width:100%;
+	height:160px;
+	float:top;
+	background-color:#F0F0E9;
+}
+.footer-top-left
+{
+	width:34%;
+	float:left;
+	padding-top:1%;
+	padding-left:3%;
+}
+.footer-top-left a
+{
+	text-decoration: none;
+	color:#333333;
+}
+.footer-top-mid
+{
+	width:33%;
+	float:left;
+	padding-top:1%;
+	padding-left:3%;
+}
+.footer-top-right
+{
+	width:33%;
+	float:left;
+	padding-top:1%;
+	padding-left:3%;
+}
+.footer-top-right img
+{
+	width:45px;
+}
+.footer-bot
+{
+	clear:both;
+	float:bottom;
+	width:100%;
+	height:30px;
+	text-align:center;
+	padding-top:5px;
+	background-color:#E0E0DA;
+}
