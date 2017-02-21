@@ -1,0 +1,68 @@
+body{
+background-color:rgb(27,40,56);
+font-family: "Lato", Sans-serif;
+overflow-x: hidden;
+}
+
+.header{
+background-color:rgb(23,26,33);
+height:115px;
+margin-left:-8px;
+margin-right:-8px;
+margin-top:-8px;
+overflow-x: hidden;
+}
+
+.headerlogo{
+float:left;
+margin-left:15%;
+margin-top:3%;
+}
+
+.linkbar{
+font-family:lato;
+color:white;
+font-size:14px;
+padding-top:4%;
+}
+
+.linktext{
+margin-left:2%;
+text-decoration:none;
+}
+
+a:visited{
+color:white;
+text-decoration:none;
+}
+
+.loginbutton{
+position:absolute;
+top:2%;
+right:15%;
+color:white;
+font-family:lato;
+font-size:13px;
+}
+
+.content{
+    color: #8F98A0;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.content b {
+    color: #C6D4DF;
+    font-weight: bold;
+}
+.content h1, h2, h3 {
+    color: #66C0F4;
+}
+.content p {
+    margin-top:15px;
+}
+
+.line {
+    background-color: #417B9C;
+    max-width: 958px;
+    height: 5px;
+}
