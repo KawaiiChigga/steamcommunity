@@ -1,52 +1,52 @@
 body{
-background-color:rgb(27,40,56);
-font-family: "Lato", Sans-serif;
-overflow-x: hidden;
+    background-color:rgb(27,40,56);
+    font-family: "Lato", Sans-serif;
+    overflow-x: hidden;
 }
 
 .header{
-background-color:rgb(23,26,33);
-height:115px;
-margin-left:-8px;
-margin-right:-8px;
-margin-top:-8px;
-overflow-x: hidden;
+    background-color:rgb(23,26,33);
+    height:115px;
+    margin-left:-8px;
+    margin-right:-8px;
+    margin-top:-8px;
+    overflow-x: hidden;
 }
 
 .headerlogo{
-float:left;
-margin-left:15%;
-margin-top:3%;
+    float:left;
+    margin-left:15%;
+    margin-top:3%;
 }
 
 .linkbar{
-font-family:lato;
-color:white;
-font-size:14px;
-padding-top:4%;
+    font-family:lato;
+    color:white;
+    font-size:14px;
+    padding-top:4%;
 }
 
 .linktext{
-margin-left:2%;
-text-decoration:none;
+    margin-left:2%;
+    text-decoration:none;
 }
 
 a:visited{
-color:white;
-text-decoration:none;
+    color:#8F98A0;
+    text-decoration:none;
 }
 
 .loginbutton{
-position:absolute;
-top:2%;
-right:15%;
-color:white;
-font-family:lato;
-font-size:13px;
+    position:absolute;
+    top:2%;
+    right:15%;
+    color:white;
+    font-family:lato;
+    font-size:13px;
 }
 
 .content{
-    color: #8F98A0;
+    color: #b0aeac;
     margin-left: 15%;
     margin-right: 15%;
 }
@@ -55,12 +55,105 @@ font-size:13px;
     font-weight: bold;
 }
 .content h1, h2, h3 {
-    color: #66C0F4;
+    color: #ffffff;
 }
 .content p {
     margin-top:15px;
 }
 
+.highlight {
+    margin-top: 17px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: -webkit-linear-gradient( top, rgba( 64, 128, 183, 0.4) 5%, rgba( 64, 128, 183, 0.2) 95%);
+    background: linear-gradient( to bottom, rgba( 64, 128, 183, 0.4) 5%, rgba( 64, 128, 183, 0.2) 95%);
+    box-shadow: 0px 0px 3px 0px rgba(20,20,20,0.75);
+}
+
+.highlight_left {
+    min-width: 350px;
+    max-width: 400px;
+    float: left;
+    padding: 17px 20px;
+}
+
+.highlight_right {
+    width: 314px;
+    float: left;
+    padding: 17px 20px;
+}
+.accountbox {
+    background-color: #000;
+    background-color: rgba(0,0,0,0.2);
+    width: 616px;
+    float: left;
+    padding: 20px 16px;
+}
+.accountbox td {
+    padding: 10px;
+}
+.agreementbox {
+    height: 337px;
+    overflow: auto;
+    border: 1px solid #4d4b49;
+    padding: 9px;
+    line-height: 15px;
+}
+.joinbox {
+    background-color: #000;
+    background-color: rgba(0,0,0,0.2);
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 308px;
+    margin-left: 14px;
+    float: right;
+}
+.profile_header {
+    max-width: 976px;
+    min-height: 224px;
+    
+    padding: 24px;
+    font-size: 13px;
+    background-color: #252a36;
+    box-shadow: 0px 0px 4px 0px rgba(20,20,20,0.75);
+}
+.profile_avatar {
+    position: relative;
+    float: left;
+    width: 166px;
+    height: 166px;
+    margin-right: 18px;
+    background-color: #ffffff;
+}
+
+.profile_summary {
+    position: relative;
+    float: left;
+    width: 550px;
+    height: 166px;
+    margin-right: 18px;
+}
+.profile_persona {
+    margin-top: -20px;
+    float: left;
+    white-space: nowrap;
+    max-width: 720px;
+}
+.profile_desc {
+    margin-top: 20px;
+    float:left;
+    width: 100%;
+    max-height: 76px;
+}
+.profile_edit {
+    height: 166px;
+    width: 150px;
+    float: left;
+    text-align: center;
+    text-align: center;
+}
 .line {
     background-color: #417B9C;
     max-width: 958px;

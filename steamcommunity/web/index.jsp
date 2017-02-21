@@ -8,7 +8,7 @@
         <div class="container">
             <jsp:include page="header.jsp" flush="true" />
             <div class="content">
-                <h3>Welcome to the Steam Discussions</h3>
+                <h3 style="color: #66C0F4">Welcome to the Steam Discussions</h3>
                 <p><b>Everyone is invited!</b> The Steam discussions are for everyone, new and 
                     advanced user alike! </p>
                 <p><b>Searching is key!</b> Before you post a question, use the forum search feature 
@@ -24,7 +24,7 @@
                 </form>
                 
                 <br/>
-                <h3>Game Forums</h3>
+                <h3 style="color: #66C0F4">Game Forums</h3>
                 <div class="line"></div>
             </div>
             <jsp:include page="footer.jsp" flush="true" />
