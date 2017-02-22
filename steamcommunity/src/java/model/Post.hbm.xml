@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 22, 2017 1:18:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Post" table="post" catalog="steam" optimistic-lock="version">
+        <id name="postId" type="int">
+            <column name="postID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="thread" class="model.Thread" fetch="select">
+            <column name="threadID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="model.User" fetch="select">
+            <column name="userID" not-null="true" />
+        </many-to-one>
+        <property name="message" type="string">
+            <column name="message" length="65535" not-null="true" />
+        </property>
+        <property name="postDateTime" type="timestamp">
+            <column name="postDateTime" length="19" not-null="true" />
+        </property>
+        <property name="updateDateTime" type="timestamp">
+            <column name="updateDateTime" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

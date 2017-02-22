@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 22, 2017 1:18:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Thread" table="thread" catalog="steam" optimistic-lock="version">
+        <id name="threadId" type="int">
+            <column name="threadID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="discussion" class="model.Discussion" fetch="select">
+            <column name="discussionID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="model.User" fetch="select">
+            <column name="userID" not-null="true" />
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="title" length="50" not-null="true" />
+        </property>
+        <property name="publishDateTime" type="timestamp">
+            <column name="publishDateTime" length="19" not-null="true" />
+        </property>
+        <property name="isPinned" type="byte">
+            <column name="isPinned" not-null="true" />
+        </property>
+        <property name="categoryType" type="byte">
+            <column name="categoryType" not-null="true" />
+        </property>
+        <set name="posts" table="post" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="threadID" not-null="true" />
+            </key>
+            <one-to-many class="model.Post" />
+        </set>
+    </class>
+</hibernate-mapping>

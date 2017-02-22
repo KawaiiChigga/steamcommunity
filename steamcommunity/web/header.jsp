@@ -6,7 +6,7 @@
     <div class="linkbar">
         <a href="index.jsp" class="linktext">DISCUSSIONS</a>
         <a href="#" class="linktext">ABOUT</a>
-        <a href="#" class="linktext">SUPPORT</a>
+        <a href="support.jsp" class="linktext">SUPPORT</a>
     </div>
     <div class="loginbutton">
         <a href="login.jsp">login</a>

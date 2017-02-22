@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 22, 2017 1:18:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Friends" table="friends" catalog="steam" optimistic-lock="version">
+        <composite-id name="id" class="model.FriendsId">
+            <key-property name="userId" type="int">
+                <column name="userID" />
+            </key-property>
+            <key-property name="friendId" type="int">
+                <column name="friendID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="userByUserId" class="model.User" update="false" insert="false" fetch="select">
+            <column name="userID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userByFriendId" class="model.User" update="false" insert="false" fetch="select">
+            <column name="friendID" not-null="true" />
+        </many-to-one>
+        <property name="status" type="byte">
+            <column name="status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

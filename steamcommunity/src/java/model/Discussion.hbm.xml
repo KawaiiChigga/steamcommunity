@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 22, 2017 1:18:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Discussion" table="discussion" catalog="steam" optimistic-lock="version">
+        <id name="discussionId" type="int">
+            <column name="discussionID" />
+            <generator class="assigned" />
+        </id>
+        <property name="gamename" type="string">
+            <column name="gamename" length="50" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="256" not-null="true" />
+        </property>
+        <property name="imgurl" type="string">
+            <column name="imgurl" length="256" not-null="true" />
+        </property>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="discussionID" />
+            </key>
+            <one-to-many class="model.User" />
+        </set>
+        <set name="threads" table="thread" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="discussionID" not-null="true" />
+            </key>
+            <one-to-many class="model.Thread" />
+        </set>
+    </class>
+</hibernate-mapping>
