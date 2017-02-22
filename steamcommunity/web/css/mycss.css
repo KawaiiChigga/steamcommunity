@@ -44,6 +44,11 @@ a:visited{
     text-decoration:none;
 }
 
+a{
+    text-decoration:none;
+    color:#8F98A0;
+}
+
 .loginbutton{
     position:absolute;
     top:2%;
@@ -217,4 +222,38 @@ a:visited{
     background-color: #417B9C;
     max-width: 958px;
     height: 5px;
+}
+.footer{
+    margin-top: 12px;
+    margin-left:-8px;
+    margin-right:-8px;
+    background-color: #101822;
+    height: 120px;
+}
+
+.footerlogo{
+    float:left;
+    margin-left:15%;
+    margin-top:2%;
+    height: 100px;
+}
+
+.disclaimer{
+    float:left;
+    color:rgb(200,200,200);
+    font-family:arial;
+    font-size:12px;
+    margin-left:1%;
+    margin-top:2%;
+    width:50%;
+}
+
+.links{
+    float:left;
+    color:rgb(200,200,200);
+    font-family:arial;
+    font-size:12px;
+    margin-left:1%;
+    margin-top:1%;
+    width:50%;
 }
