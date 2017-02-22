@@ -1,5 +1,5 @@
 package model;
-// Generated Feb 22, 2017 1:18:46 PM by Hibernate Tools 4.3.1
+// Generated Feb 22, 2017 4:42:55 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class Discussion  implements java.io.Serializable {
 
 
-     private int discussionId;
+     private Integer discussionId;
      private String gamename;
      private String description;
      private String imgurl;
@@ -22,14 +22,12 @@ public class Discussion  implements java.io.Serializable {
     }
 
 	
-    public Discussion(int discussionId, String gamename, String description, String imgurl) {
-        this.discussionId = discussionId;
+    public Discussion(String gamename, String description, String imgurl) {
         this.gamename = gamename;
         this.description = description;
         this.imgurl = imgurl;
     }
-    public Discussion(int discussionId, String gamename, String description, String imgurl, Set<User> users, Set<Thread> threads) {
-       this.discussionId = discussionId;
+    public Discussion(String gamename, String description, String imgurl, Set<User> users, Set<Thread> threads) {
        this.gamename = gamename;
        this.description = description;
        this.imgurl = imgurl;
@@ -37,11 +35,11 @@ public class Discussion  implements java.io.Serializable {
        this.threads = threads;
     }
    
-    public int getDiscussionId() {
+    public Integer getDiscussionId() {
         return this.discussionId;
     }
     
-    public void setDiscussionId(int discussionId) {
+    public void setDiscussionId(Integer discussionId) {
         this.discussionId = discussionId;
     }
     public String getGamename() {

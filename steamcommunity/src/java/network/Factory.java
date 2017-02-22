@@ -6,14 +6,13 @@ import org.hibernate.cfg.Configuration;
 public class Factory {
     public static SessionFactory factory;
     
-    public Factory() {
+    public static SessionFactory getInstance() {
         try {
             factory = new Configuration().configure().buildSessionFactory();
         } catch (Exception e) {
-            System.err.println("Error membuat Session factory");
+            System.err.println("Failed to create SessionFactory");
             e.printStackTrace();
-            
         }
+        return factory;
     }
-    
 }

@@ -1,5 +1,5 @@
 package model;
-// Generated Feb 22, 2017 1:18:46 PM by Hibernate Tools 4.3.1
+// Generated Feb 22, 2017 4:42:55 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.Date;
 public class Post  implements java.io.Serializable {
 
 
-     private int postId;
+     private Integer postId;
      private Thread thread;
      private User user;
      private String message;
@@ -20,8 +20,7 @@ public class Post  implements java.io.Serializable {
     public Post() {
     }
 
-    public Post(int postId, Thread thread, User user, String message, Date postDateTime, Date updateDateTime) {
-       this.postId = postId;
+    public Post(Thread thread, User user, String message, Date postDateTime, Date updateDateTime) {
        this.thread = thread;
        this.user = user;
        this.message = message;
@@ -29,11 +28,11 @@ public class Post  implements java.io.Serializable {
        this.updateDateTime = updateDateTime;
     }
    
-    public int getPostId() {
+    public Integer getPostId() {
         return this.postId;
     }
     
-    public void setPostId(int postId) {
+    public void setPostId(Integer postId) {
         this.postId = postId;
     }
     public Thread getThread() {

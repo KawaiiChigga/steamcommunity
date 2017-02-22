@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 22, 2017 1:18:48 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Feb 22, 2017 4:42:56 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Discussion" table="discussion" catalog="steam" optimistic-lock="version">
-        <id name="discussionId" type="int">
+        <id name="discussionId" type="java.lang.Integer">
             <column name="discussionID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="gamename" type="string">
             <column name="gamename" length="50" not-null="true" />

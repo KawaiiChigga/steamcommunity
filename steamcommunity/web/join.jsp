@@ -10,7 +10,7 @@
             <div class="content">
                 <h2>Create an Account</h2>
                 <div class="accountbox">
-                    <form action="#" method="POST">
+                    <form action="register" method="POST">
                         <table>
                             <tr><td>Create a Steam account name<br/>
                                     <input type="text" name="txtAccount"/></td></tr>
@@ -25,11 +25,11 @@
                         <hr/>
                         <table>
                             <tr><td>Your current email address<br/>
-                                    <input type="email" name="txtPassword"/></td>
+                                    <input type="email" name="txtEmail"/></td>
                                 <td>Your email address is used to confirm purchases and help you 
                                     manage access to your Steam account.</td></tr>
                             <tr><td>Re-enter password<br/>
-                                    <input type="password" name="txtRePassword"/></td>
+                                    <input type="email" name="txtReEmail"/></td>
                                 <td>Steam will send a confirmation email to this account. Please 
                                     follow the link in the mail to verify your email account with Steam.</td></tr>
                         </table>

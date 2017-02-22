@@ -1,5 +1,5 @@
 package model;
-// Generated Feb 22, 2017 1:18:46 PM by Hibernate Tools 4.3.1
+// Generated Feb 22, 2017 4:42:55 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class User  implements java.io.Serializable {
 
 
-     private int userId;
+     private Integer userId;
      private Discussion discussion;
      private String username;
      private String password;
@@ -33,8 +33,7 @@ public class User  implements java.io.Serializable {
     }
 
 	
-    public User(int userId, String username, String password, String email, String imageUrl, String name, Date joinDate) {
-        this.userId = userId;
+    public User(String username, String password, String email, String imageUrl, String name, Date joinDate) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -42,8 +41,7 @@ public class User  implements java.io.Serializable {
         this.name = name;
         this.joinDate = joinDate;
     }
-    public User(int userId, Discussion discussion, String username, String password, String email, String imageUrl, String description, String name, Integer country, Integer province, Integer city, Date joinDate, Set<Post> posts, Set<Thread> threads, Set<Friends> friendsesForUserId, Set<Friends> friendsesForFriendId) {
-       this.userId = userId;
+    public User(Discussion discussion, String username, String password, String email, String imageUrl, String description, String name, Integer country, Integer province, Integer city, Date joinDate, Set<Post> posts, Set<Thread> threads, Set<Friends> friendsesForUserId, Set<Friends> friendsesForFriendId) {
        this.discussion = discussion;
        this.username = username;
        this.password = password;
@@ -61,11 +59,11 @@ public class User  implements java.io.Serializable {
        this.friendsesForFriendId = friendsesForFriendId;
     }
    
-    public int getUserId() {
+    public Integer getUserId() {
         return this.userId;
     }
     
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
     public Discussion getDiscussion() {

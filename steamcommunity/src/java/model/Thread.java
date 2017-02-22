@@ -1,5 +1,5 @@
 package model;
-// Generated Feb 22, 2017 1:18:46 PM by Hibernate Tools 4.3.1
+// Generated Feb 22, 2017 4:42:55 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class Thread  implements java.io.Serializable {
 
 
-     private int threadId;
+     private Integer threadId;
      private Discussion discussion;
      private User user;
      private String title;
@@ -25,8 +25,7 @@ public class Thread  implements java.io.Serializable {
     }
 
 	
-    public Thread(int threadId, Discussion discussion, User user, String title, Date publishDateTime, byte isPinned, byte categoryType) {
-        this.threadId = threadId;
+    public Thread(Discussion discussion, User user, String title, Date publishDateTime, byte isPinned, byte categoryType) {
         this.discussion = discussion;
         this.user = user;
         this.title = title;
@@ -34,8 +33,7 @@ public class Thread  implements java.io.Serializable {
         this.isPinned = isPinned;
         this.categoryType = categoryType;
     }
-    public Thread(int threadId, Discussion discussion, User user, String title, Date publishDateTime, byte isPinned, byte categoryType, Set<Post> posts) {
-       this.threadId = threadId;
+    public Thread(Discussion discussion, User user, String title, Date publishDateTime, byte isPinned, byte categoryType, Set<Post> posts) {
        this.discussion = discussion;
        this.user = user;
        this.title = title;
@@ -45,11 +43,11 @@ public class Thread  implements java.io.Serializable {
        this.posts = posts;
     }
    
-    public int getThreadId() {
+    public Integer getThreadId() {
         return this.threadId;
     }
     
-    public void setThreadId(int threadId) {
+    public void setThreadId(Integer threadId) {
         this.threadId = threadId;
     }
     public Discussion getDiscussion() {

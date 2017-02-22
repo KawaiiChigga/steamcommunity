@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2017 at 07:06 AM
+-- Generation Time: Feb 22, 2017 at 10:49 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `discussion` (
   `discussionID` int(11) NOT NULL,
   `gamename` varchar(50) NOT NULL,
-  `description` varchar(256) NOT NULL,
-  `imgurl` varchar(256) NOT NULL
+  `description` varchar(256) DEFAULT NULL,
+  `imgurl` varchar(256) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -87,9 +87,9 @@ CREATE TABLE `user` (
   `username` varchar(30) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `imageURL` varchar(256) NOT NULL,
+  `imageURL` varchar(256) DEFAULT NULL,
   `description` varchar(256) DEFAULT NULL,
-  `name` varchar(100) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `country` int(50) DEFAULT NULL,
   `province` int(50) DEFAULT NULL,
   `city` int(50) DEFAULT NULL,
@@ -138,6 +138,30 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`userID`),
   ADD KEY `discussionID_user` (`discussionID`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `discussion`
+--
+ALTER TABLE `discussion`
+  MODIFY `discussionID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
+  MODIFY `postID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `thread`
+--
+ALTER TABLE `thread`
+  MODIFY `threadID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
