@@ -35,7 +35,8 @@
                 <a href=""><input style="background:#708090 ; border: 0; font-weight: bold; height: 100px; width: 700px;color: white;text-align: justify" type="button" value="My Account"/></a><br/><br/>
                 <a href=""><input style="background:#708090 ; border: 0; font-weight: bold; height: 100px; width: 700px;color: white;text-align: justify" type="button" value="Steam Hardware"/></a><br/><br/>
             </div>
-            <jsp:include page="footer.jsp" flush="true" />
+            
         </div>
+            <jsp:include page="footer.jsp" flush="true" />
     </body>
 </html>

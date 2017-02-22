@@ -76,7 +76,8 @@
                 Internet connection (broadband recommended)
            </pre>
             </div>
-            <jsp:include page="footer.jsp" flush="true" />
+            
          </div>
+         <jsp:include page="footer.jsp" flush="true" />
     </body>
 </html>
