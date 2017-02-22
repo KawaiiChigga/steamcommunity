@@ -54,7 +54,7 @@ a:visited{
     color: #C6D4DF;
     font-weight: bold;
 }
-.content h1, h2, h3 {
+.content h1, h2, h3, h4 {
     color: #ffffff;
 }
 .content p {
@@ -113,7 +113,9 @@ a:visited{
 .profile_header {
     max-width: 976px;
     min-height: 224px;
-    
+    margin-left: 14%;
+    margin-right: 14%;
+    color: #b0aeac;
     padding: 24px;
     font-size: 13px;
     background-color: #252a36;
@@ -127,7 +129,6 @@ a:visited{
     margin-right: 18px;
     background-color: #ffffff;
 }
-
 .profile_summary {
     position: relative;
     float: left;
@@ -147,12 +148,62 @@ a:visited{
     width: 100%;
     max-height: 76px;
 }
-.profile_edit {
+.profile_edit_btn {
     height: 166px;
     width: 150px;
     float: left;
     text-align: center;
     text-align: center;
+}
+.profile_content {
+    position: relative;
+    
+    background-image: url( '../image/profile_content_bg.png' );
+    background-position: center;
+    background-repeat: repeat-y;
+
+    padding: 0px 20px 64px 20px;
+    width: 926px;
+    height: 600px;
+    margin: 0 auto;
+
+    font-size: 13px;
+    color: #8F98A0;
+}
+.profile_content_left {
+    width: 622px;
+    float: left;
+    margin-right: 8px;
+}
+.profile_content_left td {
+    padding: 10px;
+}
+.profile_content_right {
+    width: 254px;
+    float: left;
+}
+.edit_profile {
+    padding: 20px;
+    background-color: #252a36;
+    max-width: 978px;
+    height: 102px;
+    margin: 0 auto 0 auto;
+    background-position: center;
+    box-shadow: 0px 0px 4px 0px rgba(20,20,20,0.75);
+}
+.edit_profile_avatar {
+    position: relative;
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin-right: 18px;
+    background-color: #ffffff;
+}
+.edit_profile_name {
+    position: relative;
+    float: left;
+    margin-top: -3px;
+    margin-right: 18px;
 }
 .line {
     background-color: #417B9C;

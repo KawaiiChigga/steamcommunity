@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2017 at 07:24 AM
+-- Generation Time: Feb 22, 2017 at 07:06 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `discussion` (
   `discussionID` int(11) NOT NULL,
   `gamename` varchar(50) NOT NULL,
-  `description` varchar(256) NOT NULL
+  `description` varchar(256) NOT NULL,
+  `imgurl` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -54,7 +55,7 @@ CREATE TABLE `post` (
   `postID` int(11) NOT NULL,
   `threadID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `message` varchar(512) NOT NULL,
+  `message` text NOT NULL,
   `postDateTime` datetime NOT NULL,
   `updateDateTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
