@@ -13,6 +13,14 @@ body{
     overflow-x: hidden;
 }
 
+.about{
+    height:115px;
+    margin-left:-8px;
+    margin-right:-8px;
+    margin-top:-8px;
+    overflow-x: hidden;
+}
+
 .headerlogo{
     float:left;
     margin-left:15%;
