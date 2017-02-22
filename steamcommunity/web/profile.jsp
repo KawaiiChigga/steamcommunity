@@ -22,7 +22,8 @@
                     <div style="clear: both;"></div>
                 </div>
                 <div class="profile_edit_btn">
-                    <a href="editprofile.jsp"><input type="button" value="Edit Profile"></a>
+                    <a href="editprofile.jsp"><input type="button" value="Edit Profile"></a><br/><br/>
+                    <a href="discussion.jsp"><input type="button" value="New Thread"></a>
                 </div>
                 <div style="clear: both;"></div>
             </div>
