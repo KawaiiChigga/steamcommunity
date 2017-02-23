@@ -17,17 +17,23 @@
                     to the message board -- spamming, flaming people, etc -- contact one of the forum moderators 
                     or report the post. Flaming the offensive user will only increase the problem. 
                     Harassment is not tolerated. </p>
-                
+
                 <form action="#" method="GET">
                     <input type="text" name="search" placeholder="Search discussions" />
                     <input type="submit" value="Search" />
                 </form>
-                
+
                 <br/>
                 <h3 style="color: #66C0F4">Game Forums</h3>
-                <div class="line"></div>
+                <div class="line"></div><br>
+                <div class="discussionbar">
+                    <img src="image/leavinglyndow.jpg" class="gamelogos">
+                    <a href="#" class="discussiontitle">Leaving Lyndow</a>
+                    <a href="#" class="viewall">VIEW ALL</a>
+                </div>
             </div>
-            <jsp:include page="footer.jsp" flush="true" />
+            
         </div>
+            <jsp:include page="footer.jsp" flush="true" />
     </body>
 </html>
