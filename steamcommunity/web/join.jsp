@@ -28,7 +28,7 @@
                                     <input type="email" name="txtEmail"/></td>
                                 <td>Your email address is used to confirm purchases and help you 
                                     manage access to your Steam account.</td></tr>
-                            <tr><td>Re-enter password<br/>
+                            <tr><td>Re-enter email<br/>
                                     <input type="email" name="txtReEmail"/></td>
                                 <td>Steam will send a confirmation email to this account. Please 
                                     follow the link in the mail to verify your email account with Steam.</td></tr>
