@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Start Your Thread</title>
+        <title>Start Your Discussion</title>
         <jsp:include page="head.jsp" flush="true" />
     </head>
     <body>

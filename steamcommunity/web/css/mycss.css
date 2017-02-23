@@ -12,7 +12,14 @@ body{
     margin-top:-8px;
     overflow-x: hidden;
 }
-
+.headerthread{
+    background-color: #b0aeac;
+    height:50px;
+    margin-left:-8px;
+    margin-right:-8px;
+    margin-top:-8px;
+    overflow-x: hidden;
+}
 .about{
     height:115px;
     margin-left:-8px;
