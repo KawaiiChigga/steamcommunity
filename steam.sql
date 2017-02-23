@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2017 at 10:49 AM
+-- Generation Time: Feb 23, 2017 at 02:59 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `discussion` (
   `discussionID` int(11) NOT NULL,
   `gamename` varchar(50) NOT NULL,
-  `description` varchar(256) DEFAULT NULL,
-  `imgurl` varchar(256) DEFAULT NULL
+  `description` varchar(256) NOT NULL,
+  `imgurl` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -87,15 +87,22 @@ CREATE TABLE `user` (
   `username` varchar(30) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `imageURL` varchar(256) DEFAULT NULL,
-  `description` varchar(256) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `country` int(50) DEFAULT NULL,
-  `province` int(50) DEFAULT NULL,
-  `city` int(50) DEFAULT NULL,
+  `imageURL` varchar(256) NOT NULL,
+  `description` varchar(256) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `country` varchar(100) NOT NULL,
+  `province` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL,
   `joinDate` datetime NOT NULL,
   `discussionID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userID`, `username`, `password`, `email`, `imageURL`, `description`, `name`, `country`, `province`, `city`, `joinDate`, `discussionID`) VALUES
+(1, 'gaunled', 'gaunled', 'gaunled@gmail.com', '', '', '', '', '', '', '2017-02-22 16:49:24', NULL);
 
 --
 -- Indexes for dumped tables
@@ -161,7 +168,7 @@ ALTER TABLE `thread`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
