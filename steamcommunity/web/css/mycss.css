@@ -13,12 +13,28 @@ body{
     overflow-x: hidden;
 }
 .headerthread{
-    background-color: #b0aeac;
-    height:50px;
+    color: #b0aeac;
+    height:70px;
     margin-left:-8px;
     margin-right:-8px;
-    margin-top:-8px;
     overflow-x: hidden;
+}
+.contentthread{
+    background-color: #b0aeac;
+    margin-left: 1%;
+    margin-right: 15%;
+    margin-bottom: 5px;
+    width:700px;
+}
+.contentth{
+    border: #233550;
+    margin-top: 5px;
+    margin-left: 1%;
+    margin-right: 15%;
+    width:700px;
+    height:50px;
+    overflow-x: hidden;
+    color: #000000;
 }
 .about{
     height:115px;

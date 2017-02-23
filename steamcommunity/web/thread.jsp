@@ -19,19 +19,24 @@
         <%
             CtrlThread ct = new CtrlThread();
             ArrayList<Thread> data = new ArrayList<Thread>();
-            
+            data = ct.getAllThread();
         %>
         <jsp:include page="header.jsp" flush="true" />
         <div class="content">
         <jsp:include page="headerthread.jsp" flush="true" />
         <hr/>
+         <div class="contentthread">
          <%
                 for (int i = 0; i < data.size(); i++) {
                     Thread temp = data.get(i);
-                    out.print(temp.getTitle());
+                    out.print("<div class=contentth>");
+                    out.print(temp.getTitle()+"<br/>");
+                    out.print("</div>");
                 }
          %>
+         
         </div>
-        <jsp:include page="footer.jsp" flush="true" />
+        
+        </div><jsp:include page="footer.jsp" flush="true" />
     </body>
 </html>

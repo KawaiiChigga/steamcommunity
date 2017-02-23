@@ -6,7 +6,7 @@
 package controller;
 
 import java.util.ArrayList;
-import model.Discussion;
+import model.Thread;
 import network.Factory;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -34,12 +34,10 @@ public class CtrlThread {
         Session session = Factory.getInstance().openSession();
         ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from thread");
+        Query q = session.createQuery("from Thread");
         hasil = (ArrayList<Thread>) q.list();
-        
         tx.commit();
         session.close();
-        
         return hasil;
     }
     public static boolean insertThread(Thread t)

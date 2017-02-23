@@ -28,7 +28,7 @@
                 <div class="line"></div><br>
                 <div class="discussionbar">
                     <img src="image/leavinglyndow.jpg" class="gamelogos">
-                    <a href="#" class="discussiontitle">Leaving Lyndow</a>
+                    <a href="thread.jsp" class="discussiontitle">Leaving Lyndow</a>
                     <a href="#" class="viewall">VIEW ALL</a>
                 </div>
             </div>
