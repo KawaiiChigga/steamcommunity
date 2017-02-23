@@ -8,7 +8,7 @@ package servlets;
 import controller.CtrlAccount;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +21,19 @@ import model.User;
  *
  * @author Daniel
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "EditProfileServlet", urlPatterns = {"/edit"})
+public class EditProfileServlet extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -50,17 +61,24 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("txtUsername");
-        String password = request.getParameter("txtPassword");
+        User u = new User(
+                request.getParameter("txtProfileName"), 
+                "", 
+                "", 
+                request.getParameter("txtAvatar"), 
+                request.getParameter("txtSummary"), 
+                request.getParameter("txtRealName"), 
+                request.getParameter("txtCountry"), 
+                request.getParameter("txtProvince"), 
+                request.getParameter("txtCity"), 
+                new Date()
+        );
+//        HttpSession session = request.getSession();
+//        User ss = (User) session.getAttribute("currentsession");
+//        System.out.println(ss.getUserId());
+        CtrlAccount.edit(u, ((User) request.getSession().getAttribute("currentsession")).getUserId());
         
-        User u = CtrlAccount.login(username, password);
-        if (u != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("currentsession", u);
-            response.sendRedirect("profile.jsp?username=" + u.getUsername());
-        } else {
-            response.sendRedirect("login.jsp");
-        }
+        response.sendRedirect("profile.jsp");
     }
 
     /**

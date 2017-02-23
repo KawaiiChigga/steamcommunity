@@ -26,11 +26,17 @@
                 <br/>
                 <h3 style="color: #66C0F4">Game Forums</h3>
                 <div class="line"></div><br>
-                <div class="discussionbar">
-                    <img src="image/leavinglyndow.jpg" class="gamelogos">
-                    <a href="#" class="discussiontitle">Leaving Lyndow</a>
-                    <a href="#" class="viewall">VIEW ALL</a>
-                </div>
+                <%
+                    for (int i = 0; i < 5; i++) {
+                %>
+                    <div class="discussionbar">
+                        <img src="image/leavinglyndow.jpg" class="gamelogos">
+                        <a href="#" class="discussiontitle">Leaving Lyndow</a>
+                        <a href="#" class="viewall">VIEW ALL</a>
+                    </div>
+                <%
+                    }
+                %>
             </div>
             
         </div>

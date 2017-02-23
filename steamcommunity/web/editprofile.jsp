@@ -24,7 +24,7 @@
             <div class="profile_content">
                 <div class="profile_content_left">
                     <h2>Edit Profile</h2> <br/>
-                    <form action="#" method="POST">
+                    <form action="edit" method="POST">
                         <table>
                             <tr><td>Profile Name</td>
                                 <td><input type="text" name="txtProfileName" value="<%=u.getUsername()%>"/></td></tr>

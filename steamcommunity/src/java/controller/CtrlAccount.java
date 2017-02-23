@@ -34,4 +34,28 @@ public class CtrlAccount{
         session.close();
         return u;
     }
+    public static boolean edit(User u, Integer uid) {
+        Session session = Factory.getInstance().openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            Query q = session.createQuery("update User set username=?, imageURL=?, description=?, name=?, "
+                    + "country=?, province=?, city=? where userID=?");
+            q.setString(0, u.getUsername());
+            q.setString(1, u.getImageUrl());
+            q.setString(2, u.getDescription());
+            q.setString(3, u.getName());
+            q.setString(4, u.getCountry());
+            q.setString(5, u.getProvince());
+            q.setString(6, u.getCity());
+            q.setInteger(7, uid);
+            
+            q.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        session.close();
+        return true;
+    }
 }
