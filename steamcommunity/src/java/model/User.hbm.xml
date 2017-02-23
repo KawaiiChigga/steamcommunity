@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 22, 2017 4:42:56 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Feb 23, 2017 9:05:57 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.User" table="user" catalog="steam" optimistic-lock="version">
         <id name="userId" type="java.lang.Integer">
@@ -24,19 +24,19 @@
             <column name="imageURL" length="256" not-null="true" />
         </property>
         <property name="description" type="string">
-            <column name="description" length="256" />
+            <column name="description" length="256" not-null="true" />
         </property>
         <property name="name" type="string">
             <column name="name" length="100" not-null="true" />
         </property>
-        <property name="country" type="java.lang.Integer">
-            <column name="country" />
+        <property name="country" type="string">
+            <column name="country" length="100" not-null="true" />
         </property>
-        <property name="province" type="java.lang.Integer">
-            <column name="province" />
+        <property name="province" type="string">
+            <column name="province" length="100" not-null="true" />
         </property>
-        <property name="city" type="java.lang.Integer">
-            <column name="city" />
+        <property name="city" type="string">
+            <column name="city" length="100" not-null="true" />
         </property>
         <property name="joinDate" type="timestamp">
             <column name="joinDate" length="19" not-null="true" />

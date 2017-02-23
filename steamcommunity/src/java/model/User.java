@@ -1,5 +1,5 @@
 package model;
-// Generated Feb 22, 2017 4:42:55 PM by Hibernate Tools 4.3.1
+// Generated Feb 23, 2017 9:05:54 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -20,9 +20,9 @@ public class User  implements java.io.Serializable {
      private String imageUrl;
      private String description;
      private String name;
-     private Integer country;
-     private Integer province;
-     private Integer city;
+     private String country;
+     private String province;
+     private String city;
      private Date joinDate;
      private Set<Post> posts = new HashSet<Post>(0);
      private Set<Thread> threads = new HashSet<Thread>(0);
@@ -33,15 +33,19 @@ public class User  implements java.io.Serializable {
     }
 
 	
-    public User(String username, String password, String email, String imageUrl, String name, Date joinDate) {
+    public User(String username, String password, String email, String imageUrl, String description, String name, String country, String province, String city, Date joinDate) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.imageUrl = imageUrl;
+        this.description = description;
         this.name = name;
+        this.country = country;
+        this.province = province;
+        this.city = city;
         this.joinDate = joinDate;
     }
-    public User(Discussion discussion, String username, String password, String email, String imageUrl, String description, String name, Integer country, Integer province, Integer city, Date joinDate, Set<Post> posts, Set<Thread> threads, Set<Friends> friendsesForUserId, Set<Friends> friendsesForFriendId) {
+    public User(Discussion discussion, String username, String password, String email, String imageUrl, String description, String name, String country, String province, String city, Date joinDate, Set<Post> posts, Set<Thread> threads, Set<Friends> friendsesForUserId, Set<Friends> friendsesForFriendId) {
        this.discussion = discussion;
        this.username = username;
        this.password = password;
@@ -115,25 +119,25 @@ public class User  implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    public Integer getCountry() {
+    public String getCountry() {
         return this.country;
     }
     
-    public void setCountry(Integer country) {
+    public void setCountry(String country) {
         this.country = country;
     }
-    public Integer getProvince() {
+    public String getProvince() {
         return this.province;
     }
     
-    public void setProvince(Integer province) {
+    public void setProvince(String province) {
         this.province = province;
     }
-    public Integer getCity() {
+    public String getCity() {
         return this.city;
     }
     
-    public void setCity(Integer city) {
+    public void setCity(String city) {
         this.city = city;
     }
     public Date getJoinDate() {

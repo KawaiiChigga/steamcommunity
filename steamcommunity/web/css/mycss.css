@@ -178,7 +178,7 @@ float:left;
     width: 166px;
     height: 166px;
     margin-right: 18px;
-    background-color: #ffffff;
+    background-position: center center;
 }
 .profile_summary {
     position: relative;
@@ -248,7 +248,7 @@ float:left;
     width: 64px;
     height: 64px;
     margin-right: 18px;
-    background-color: #ffffff;
+    background-position: center center;
 }
 .edit_profile_name {
     position: relative;

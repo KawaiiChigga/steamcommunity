@@ -5,24 +5,21 @@
  */
 package servlets;
 
-import controller.CtrlAccount;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.User;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Daniel
  */
-@WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
-public class RegisterServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout"})
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,22 +30,6 @@ public class RegisterServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RegisterServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -62,7 +43,12 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        processRequest(request, response);
+        if (request.getParameter("logout").equals("yes")) {
+            HttpSession session = request.getSession();
+//            session.removeAttribute("currentsession");
+            session.setAttribute("currentsession", null);
+        }
+        response.sendRedirect("index.jsp");
     }
 
     /**
@@ -76,23 +62,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User u = new User(
-                request.getParameter("txtAccount"), 
-                request.getParameter("txtPassword"), 
-                request.getParameter("txtEmail"), 
-                "", 
-                "", 
-                "",
-                "",
-                "",
-                "",
-                new Date()
-        );
-        
-        CtrlAccount.createAccount(u);
-        response.sendRedirect("index.jsp");
-//        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
-//        rd.forward(request, response);
+//        processRequest(request, response);
     }
 
     /**

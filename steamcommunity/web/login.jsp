@@ -12,7 +12,7 @@
                     <div class="highlight_left">
                         <h3>Sign In</h3>
                         <p>To an existing Steam account</p>
-                        <form action="profile.jsp" method="POST">
+                        <form action="login" method="POST">
                             Steam username <br/>
                             <input type="text" name="txtUsername" /> <br/>
                             Password <br/>

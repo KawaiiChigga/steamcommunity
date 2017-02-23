@@ -1,3 +1,4 @@
+<%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header class="header">
     <div class="headerlogo">
@@ -9,6 +10,14 @@
         <a href="support.jsp" class="linktext">SUPPORT</a>
     </div>
     <div class="loginbutton">
-        <a href="login.jsp">login</a>
+        <%
+            User u = (User) session.getAttribute("currentsession");
+            if (u == null) {
+                out.println("<a href='login.jsp'>login</a>");
+            } else {
+                out.println("<a href='profile.jsp'>" + u.getUsername() +"</a>");
+            }
+        %>
+        
     </div>
 </header>
