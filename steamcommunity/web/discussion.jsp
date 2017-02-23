@@ -28,7 +28,6 @@
                 <input type="submit" value="Submit" style="color:black"><br/>
                 </form>
             </div>
-            
         </div>
         <jsp:include page="footer.jsp" flush="true" />
     </body>
