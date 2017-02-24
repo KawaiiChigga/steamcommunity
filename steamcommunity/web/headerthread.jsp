@@ -6,8 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header class="headerthread">
-    <div class="linkbar">
+    <div class="linkbarthread">
+        <h3>Leaving Lyndow</h3> 
         <a href="thread.jsp" class="linktext">Discussions</a>
         <a href="description.jsp" class="linktext">Description</a>
+        <hr/>
     </div>
 </header>

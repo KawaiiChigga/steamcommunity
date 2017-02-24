@@ -21,22 +21,28 @@
             ArrayList<Thread> data = new ArrayList<Thread>();
             data = ct.getAllThread();
         %>
-        <jsp:include page="header.jsp" flush="true" />
-        <div class="content">
-        <jsp:include page="headerthread.jsp" flush="true" />
-        <hr/>
-         <div class="contentthread">
-         <%
-                for (int i = 0; i < data.size(); i++) {
-                    Thread temp = data.get(i);
-                    out.print("<div class=contentth>");
-                    out.print(temp.getTitle()+"<br/>");
-                    out.print("</div>");
-                }
-         %>
-         
+        <div class="container">
+            <jsp:include page="header.jsp" flush="true" />
+            <div class="content">
+                <jsp:include page="headerthread.jsp" flush="true" />
+                <div class="contentthread">
+                    <div class="contentthreadleft">
+                        
+                <%
+                        for (int i = 0; i < 10; i++) {
+//                           Thread temp = data.get(i);
+//                           out.print("<div class=contentth>");
+//                           out.print(temp.getTitle()+"<br/>");
+//                           out.print("</div>");
+                            out.println("<div class='contentth'>");
+                            out.println("<h4>help me</h4>");
+                            out.println("</div>");
+                        }
+                %>
+                    </div>
+                </div>
+            </div>
+            <jsp:include page="footer.jsp" flush="true" />
         </div>
-        
-        </div><jsp:include page="footer.jsp" flush="true" />
     </body>
 </html>

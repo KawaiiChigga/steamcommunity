@@ -65,7 +65,7 @@ public class EditProfileServlet extends HttpServlet {
                 request.getParameter("txtProfileName"), 
                 "", 
                 "", 
-                request.getParameter("txtAvatar"), 
+                "1.png", 
                 request.getParameter("txtSummary"), 
                 request.getParameter("txtRealName"), 
                 request.getParameter("txtCountry"), 

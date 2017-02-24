@@ -15,4 +15,9 @@ public class Factory {
         }
         return factory;
     }
+    
+    public static boolean close() {
+        factory.close();
+        return true;
+    }
 }
