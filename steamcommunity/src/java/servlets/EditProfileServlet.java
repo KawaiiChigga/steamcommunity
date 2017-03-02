@@ -6,86 +6,107 @@
 package servlets;
 
 import controller.CtrlAccount;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
+import java.io.InputStream;
+import java.nio.file.Paths;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 import model.User;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileItemIterator;
+import org.apache.commons.fileupload.FileItemStream;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.util.Streams;
+import org.apache.commons.io.FilenameUtils;
 
 /**
  *
  * @author Daniel
  */
 @WebServlet(name = "EditProfileServlet", urlPatterns = {"/edit"})
+@MultipartConfig
 public class EditProfileServlet extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    private static final String SAVE_DIR = "/image/user";
     
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User u = new User(
-                request.getParameter("txtProfileName"), 
-                "", 
-                "", 
-                "1.png", 
-                request.getParameter("txtSummary"), 
-                request.getParameter("txtRealName"), 
-                request.getParameter("txtCountry"), 
-                request.getParameter("txtProvince"), 
-                request.getParameter("txtCity"), 
-                new Date()
-        );
+        User u = (User) request.getSession().getAttribute("currentsession");
+        
+        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+        
+        if (isMultipart) {
+            int maxFileSize = 50 * 1024;
+            int maxMemSize = 4 * 1024;
+        
+            DiskFileItemFactory factory = new DiskFileItemFactory();
+            factory.setSizeThreshold(maxMemSize);
+            
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            upload.setSizeMax(maxFileSize);
+            try {
+                List items = upload.parseRequest(request);
+                Iterator iterator = items.iterator();
+                while (iterator.hasNext()) {
+                    FileItem item = (FileItem) iterator.next();
+                    
+                    if (!item.isFormField()) {
+                        String name = u.getUserId() + "." + FilenameUtils.getExtension(item.getName()); 
+                        String root = new File(request.getServletContext().getRealPath("")).getParentFile().getParent();
+                        File uploadedFile = new File(root + "/web" + SAVE_DIR + File.separator + name);
+                        item.write(uploadedFile);
+                        
+                        u.setImageUrl(name);
+                    } else {
+                        switch (item.getFieldName()) {
+                            case "txtProfileName" : u.setUsername(item.getString()); break;
+                            case "txtSummary" : u.setDescription(item.getString()); break;
+                            case "txtRealName" : u.setName(item.getString()); break;
+                            case "txtCountry" : u.setCountry(item.getString()); break;
+                            case "txtProvince" : u.setProvince(item.getString()); break;
+                            case "txtCity" : u.setCity(item.getString()); break;
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+        } else {
+            u.setUsername(request.getParameter("txtProfileName"));
+            u.setDescription(request.getParameter("txtSummary"));
+            u.setName(request.getParameter("txtRealName"));
+            u.setCountry(request.getParameter("txtCountry"));
+            u.setProvince(request.getParameter("txtProvince"));
+            u.setCity(request.getParameter("txtCity"));
+        }
+
 //        HttpSession session = request.getSession();
 //        User ss = (User) session.getAttribute("currentsession");
 //        System.out.println(ss.getUserId());
-        CtrlAccount.edit(u, ((User) request.getSession().getAttribute("currentsession")).getUserId());
+        CtrlAccount.edit(u);
         
+        request.getSession().setAttribute("currentsession", u);
         response.sendRedirect("profile.jsp");
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

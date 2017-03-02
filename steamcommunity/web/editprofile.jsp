@@ -24,7 +24,7 @@
             <div class="profile_content">
                 <div class="profile_content_left">
                     <h2>Edit Profile</h2> <br/>
-                    <form action="edit" method="POST">
+                    <form action="edit" method="POST" enctype="multipart/form-data">
                         <table>
                             <tr><td>Profile Name</td>
                                 <td><input type="text" name="txtProfileName" value="<%=u.getUsername()%>"/></td></tr>
@@ -37,7 +37,7 @@
                             <tr><td>City</td>
                                 <td><input type="text" name="txtCity" value="<%=u.getCity()%>"></td></tr>
                             <tr><td>Avatar</td>
-                                <td><input type="file" name="txtAvatar"></td></tr>
+                                <td><input type="file" name="fileAvatar"></td></tr>
                             <tr><td>Summary (?)</td>
                                 <td><textarea name="txtSummary" rows="8" cols="60"><%=u.getDescription()%></textarea></td></tr>
                         </table>
