@@ -7,10 +7,7 @@ package servlets;
 
 import controller.CtrlAccount;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -19,15 +16,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import model.User;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileItemIterator;
-import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.fileupload.util.Streams;
 import org.apache.commons.io.FilenameUtils;
 
 /**
@@ -48,11 +40,12 @@ public class EditProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User u = (User) request.getSession().getAttribute("currentsession");
+        User u = CtrlAccount.getUser((Integer) request.getSession().getAttribute("currentsession"));
         
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         
         if (isMultipart) {
+            System.out.println("multi");
             int maxFileSize = 50 * 1024;
             int maxMemSize = 4 * 1024;
         
@@ -103,8 +96,8 @@ public class EditProfileServlet extends HttpServlet {
 //        System.out.println(ss.getUserId());
         CtrlAccount.edit(u);
         
-        request.getSession().setAttribute("currentsession", u);
-        response.sendRedirect("profile.jsp");
+        request.getSession().setAttribute("currentsession", u.getUserId());
+        response.sendRedirect("profile.jsp?uid="+u.getUserId());
     }
 
     @Override

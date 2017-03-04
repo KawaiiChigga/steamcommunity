@@ -8,18 +8,19 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class CtrlAccount{
-    public static User getUser(String username) {
+    public static User getUser(Integer uid) {
         Session session = Factory.getInstance().openSession();
         Transaction tx = session.beginTransaction();
         User u = null;
         try {
-            Query q = session.createQuery("from User where username=?");
-            q.setString(0, username);
+            Query q = session.createQuery("from User where userID=?");
+            q.setInteger(0, uid);
             
             u = (User) q.uniqueResult();
             tx.commit();
         } catch (Exception e) {
         }
+        session.close();
         return u;
     }
     

@@ -1,3 +1,4 @@
+<%@page import="controller.CtrlAccount"%>
 <%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header class="header">
@@ -11,11 +12,12 @@
     </div>
     <div class="loginbutton">
         <%
-            User u = (User) session.getAttribute("currentsession");
-            if (u == null) {
+            Integer uid = (Integer) session.getAttribute("currentsession");
+            if (uid == null) {
                 out.println("<a href='login.jsp'>login</a>");
             } else {
-                out.println("<a href='profile.jsp?username=" + u.getUsername() + "'>" +  u.getUsername() + "</a>");
+                User u = CtrlAccount.getUser(uid);
+                out.println("<a href='profile.jsp?uid=" + u.getUserId()+ "'>" +  u.getUsername() + "</a>");
             }
         %>
         

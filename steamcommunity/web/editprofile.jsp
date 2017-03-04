@@ -1,3 +1,4 @@
+<%@page import="controller.CtrlAccount"%>
 <%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,7 +8,7 @@
     </head>
     <body>
         <%
-            User u = (User) session.getAttribute("currentsession");
+            User u = CtrlAccount.getUser((Integer) session.getAttribute("currentsession"));
         %>
         <div class="container">
             <jsp:include page="header.jsp" flush="true" />

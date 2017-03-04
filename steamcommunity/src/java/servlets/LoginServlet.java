@@ -24,7 +24,6 @@ import model.User;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -56,8 +55,8 @@ public class LoginServlet extends HttpServlet {
         User u = CtrlAccount.login(username, password);
         if (u != null) {
             HttpSession session = request.getSession();
-            session.setAttribute("currentsession", u);
-            response.sendRedirect("profile.jsp?username=" + u.getUsername());
+            session.setAttribute("currentsession", u.getUserId());
+            response.sendRedirect("profile.jsp?uid=" + u.getUserId());
         } else {
             response.sendRedirect("login.jsp");
         }

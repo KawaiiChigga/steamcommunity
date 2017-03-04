@@ -1,3 +1,6 @@
+<%@page import="model.Friends"%>
+<%@page import="controller.CtrlFriends"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="controller.CtrlAccount"%>
 <%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -8,8 +11,8 @@
     </head>
     <body>
         <%
-            User ses = (User) session.getAttribute("currentsession");
-            User req = CtrlAccount.getUser(request.getParameter("username"));
+            User ses = CtrlAccount.getUser((Integer) session.getAttribute("currentsession"));
+            User req = CtrlAccount.getUser(Integer.parseInt(request.getParameter("uid")));
         %>
         <div class="container">
             <jsp:include page="header.jsp" flush="true" />
@@ -46,7 +49,7 @@
                     <%  
                         } else {
                     %>
-                            <a href="editprofile.jsp"><input type="button" value="Add Friend"></a><br/><br/>
+                            <a href="addfriend?friendid=<%=req.getUsername()%>"><input type="button" value="Add Friend"></a><br/><br/>
                     <%  
                         }
                     %>
@@ -60,6 +63,25 @@
                 </div>
                 <div class="profile_content_right">
                     <h4>Friends</h4>
+                    <%
+                        ArrayList<Friends> list = CtrlFriends.getFriends(req.getUserId());
+                        for (int i = 0; i < list.size(); i++) {
+                            User a = CtrlAccount.getUser(list.get(i).getId().getFriendId());
+                    %>
+                        <a href="profile.jsp?uid=<%=a.getUserId()%>">
+                            <div class="friendlist">
+                                <div class="friendlistdisplay" style="
+                                    background-image: url('image/user/<%=a.getImageUrl()%>'); 
+                                    background-repeat: no-repeat;
+                                    background-size: contain"></div>
+                                <div class="friendlistusername">
+                                    <%=a.getUsername()%>
+                                </div>
+                            </div>
+                        </a>
+                    <%
+                        }
+                    %>
                 </div>
                 <div style="clear: both;"></div>
             </div>

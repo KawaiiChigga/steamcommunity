@@ -5,6 +5,8 @@
  */
 package servlets;
 
+import controller.CtrlAccount;
+import controller.CtrlFriends;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,42 +14,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import model.User;
 
 /**
  *
  * @author Daniel
  */
-@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout"})
-public class LogoutServlet extends HttpServlet {
+@WebServlet(name = "AddFriend", urlPatterns = {"/addfriend"})
+public class AddFriendServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("logout").equals("yes")) {
-            HttpSession session = request.getSession();
-//            session.removeAttribute("currentsession");
-            session.setAttribute("currentsession", null);
-        }
-        response.sendRedirect("index.jsp");
+        User current = CtrlAccount.getUser((Integer) request.getSession().getAttribute("currentsession"));
+        User add = CtrlAccount.getUser(Integer.parseInt(request.getParameter("friendid")));
+        
+        CtrlFriends.addFriends(current, add);
+        
+        response.sendRedirect("profile.jsp?username=" + add.getUsername());
     }
 
     /**
