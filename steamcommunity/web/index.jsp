@@ -30,7 +30,7 @@
                     for (int i = 0; i < 5; i++) {
                 %>
                     <div class="discussionbar">
-                        <img src="image/leavinglyndow.jpg" class="gamelogos">
+                        <img src="image/games/leavinglyndow.jpg" class="gamelogos">
                         <a href="thread.jsp" class="discussiontitle">Leaving Lyndow</a>
                         <a href="thread.jsp" class="viewall">VIEW ALL</a>
                     </div>

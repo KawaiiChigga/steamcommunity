@@ -15,7 +15,7 @@
             if (u == null) {
                 out.println("<a href='login.jsp'>login</a>");
             } else {
-                out.println("<a href='profile.jsp'>" + u.getUsername() +"</a>");
+                out.println("<a href='profile.jsp?username=" + u.getUsername() + "'>" +  u.getUsername() + "</a>");
             }
         %>
         

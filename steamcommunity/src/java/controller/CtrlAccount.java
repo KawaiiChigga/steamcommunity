@@ -8,6 +8,21 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class CtrlAccount{
+    public static User getUser(String username) {
+        Session session = Factory.getInstance().openSession();
+        Transaction tx = session.beginTransaction();
+        User u = null;
+        try {
+            Query q = session.createQuery("from User where username=?");
+            q.setString(0, username);
+            
+            u = (User) q.uniqueResult();
+            tx.commit();
+        } catch (Exception e) {
+        }
+        return u;
+    }
+    
     public static boolean createAccount(User u) {
         Session session = Factory.getInstance().openSession();
         Transaction tx = session.beginTransaction();
