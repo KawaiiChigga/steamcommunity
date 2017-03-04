@@ -19,17 +19,8 @@ import org.hibernate.cfg.Configuration;
  * @author Sujana
  */
 public class CtrlThread {
-    public static SessionFactory factory;
-    public CtrlThread()
-    {
-        try {
-            factory = new Configuration().configure().buildSessionFactory();
-        } catch (Exception e) {
-            System.err.println("error membuat Session factory");
-            e.printStackTrace();
-        }
-    }
-     public ArrayList<Thread> getAllThread()
+    
+    public ArrayList<Thread> getAllThread()
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Thread> hasil = null;

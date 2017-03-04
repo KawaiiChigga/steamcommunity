@@ -10,5 +10,5 @@ package controller;
  * @author Daniel
  */
 public class CtrlFriends {
-    
+//    public static Friends 
 }
