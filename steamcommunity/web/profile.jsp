@@ -48,9 +48,11 @@
                             <a href="discussion.jsp"><input type="button" value="New Thread"></a>
                     <%  
                         } else {
+                            if (!CtrlFriends.checkFriend(ses.getUserId(), req.getUserId())) {
                     %>
-                            <a href="addfriend?friendid=<%=req.getUsername()%>"><input type="button" value="Add Friend"></a><br/><br/>
+                                <a href="friend?friendid=<%=req.getUserId()%>&status=save"><input type="button" value="Add Friend"></a><br/><br/>
                     <%  
+                            } 
                         }
                     %>
                 </div>
@@ -62,24 +64,73 @@
                     <hr />
                 </div>
                 <div class="profile_content_right">
-                    <h4>Friends</h4>
+                    
                     <%
-                        ArrayList<Friends> list = CtrlFriends.getFriends(req.getUserId());
-                        for (int i = 0; i < list.size(); i++) {
-                            User a = CtrlAccount.getUser(list.get(i).getId().getFriendId());
+                        if (ses.getUsername().equals(req.getUsername())) {
+                            ArrayList<Friends> listReq = CtrlFriends.getFriends(ses.getUserId(), "friendID", 1);
+                            ArrayList<Friends> list = CtrlFriends.getFriends(req.getUserId(), "userID", 1);
+                            out.println("<h4>Friends " + list.size() + "</h4>");
+                            for (int i = 0; i < listReq.size(); i++) {
+                                User a = CtrlAccount.getUser(listReq.get(i).getId().getUserId());
+                                if (listReq.get(i).getStatus() == new Byte((byte) 0)) {
                     %>
-                        <a href="profile.jsp?uid=<%=a.getUserId()%>">
-                            <div class="friendlist">
-                                <div class="friendlistdisplay" style="
-                                    background-image: url('image/user/<%=a.getImageUrl()%>'); 
-                                    background-repeat: no-repeat;
-                                    background-size: contain"></div>
-                                <div class="friendlistusername">
-                                    <%=a.getUsername()%>
-                                </div>
-                            </div>
-                        </a>
+                                    <a href="profile.jsp?uid=<%=a.getUserId()%>">
+                                        <div class="friendlist">
+                                            <div class="friendlistdisplay" style="
+                                                background-image: url('image/user/<%=a.getImageUrl()%>'); 
+                                                background-repeat: no-repeat;
+                                                background-size: contain"></div>
+                                            <div class="friendlistusername">
+                                                <%=a.getUsername()%><br>
+                                                    <a href='friend?friendid=<%=a.getUserId()%>&status=update' style='font-size:10px;'>Accept Friend Request</a>
+                                            </div>
+                                        </div>
+                                    </a>
                     <%
+                                }
+                            }
+                            for (int i = 0; i < list.size(); i++) {
+                                User a = CtrlAccount.getUser(list.get(i).getId().getFriendId());
+                    %>
+                                <a href="profile.jsp?uid=<%=a.getUserId()%>">
+                                    <div class="friendlist">
+                                        <div class="friendlistdisplay" style="
+                                            background-image: url('image/user/<%=a.getImageUrl()%>'); 
+                                            background-repeat: no-repeat;
+                                            background-size: contain"></div>
+                                        <div class="friendlistusername">
+                                            <%=a.getUsername()%> <br>
+                                            <%
+                                                if (list.get(i).getStatus() == new Byte((byte) 0)) {
+                                                    out.println("<a href='#' style='font-size:10px;'>Pending</a>");
+                                                }
+                                            %>
+                                        </div>
+                                    </div>
+                                </a>
+                    <%
+                            }
+                        } else {
+                            ArrayList<Friends> list = CtrlFriends.getFriends(req.getUserId(), "userID", 0);
+                            out.println("<h4>Friends " + list.size() + "</h4>");
+                            for (int i = 0; i < list.size(); i++) {
+                                if (list.get(i).getStatus() != new Byte((byte) 0)) {
+                                    User a = CtrlAccount.getUser(list.get(i).getId().getFriendId());
+                    %>
+                                    <a href="profile.jsp?uid=<%=a.getUserId()%>">
+                                        <div class="friendlist">
+                                            <div class="friendlistdisplay" style="
+                                                background-image: url('image/user/<%=a.getImageUrl()%>'); 
+                                                background-repeat: no-repeat;
+                                                background-size: contain"></div>
+                                            <div class="friendlistusername">
+                                                <%=a.getUsername()%><br>
+                                            </div>
+                                        </div>
+                                    </a>
+                    <%
+                                }
+                            }
                         }
                     %>
                 </div>

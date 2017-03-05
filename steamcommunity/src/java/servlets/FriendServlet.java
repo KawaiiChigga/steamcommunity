@@ -20,8 +20,8 @@ import model.User;
  *
  * @author Daniel
  */
-@WebServlet(name = "AddFriend", urlPatterns = {"/addfriend"})
-public class AddFriendServlet extends HttpServlet {
+@WebServlet(name = "Friend", urlPatterns = {"/friend"})
+public class FriendServlet extends HttpServlet {
 
     
     @Override
@@ -29,10 +29,18 @@ public class AddFriendServlet extends HttpServlet {
             throws ServletException, IOException {
         User current = CtrlAccount.getUser((Integer) request.getSession().getAttribute("currentsession"));
         User add = CtrlAccount.getUser(Integer.parseInt(request.getParameter("friendid")));
-        
-        CtrlFriends.addFriends(current, add);
-        
-        response.sendRedirect("profile.jsp?username=" + add.getUsername());
+        String status;
+        try {
+            status = request.getParameter("status");
+        } catch (Exception e) {
+            status = "save";
+        }
+        CtrlFriends.addFriends(current, add, status);
+        if (status.equals("save")) {
+            response.sendRedirect("profile.jsp?uid=" + add.getUserId());
+        } else {
+            response.sendRedirect("profile.jsp?uid=" + current.getUserId());
+        }
     }
 
     /**

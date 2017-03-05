@@ -46,9 +46,8 @@ public class CtrlAccount{
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            session.close();
         }
+        session.close();
         return u;
     }
     public static boolean edit(User u) {
@@ -59,9 +58,8 @@ public class CtrlAccount{
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            session.close();
-        }
+        } 
+        session.close();
         return true;
     }
 }
