@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2017 at 02:59 PM
+-- Generation Time: Mar 05, 2017 at 07:37 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -102,7 +102,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userID`, `username`, `password`, `email`, `imageURL`, `description`, `name`, `country`, `province`, `city`, `joinDate`, `discussionID`) VALUES
-(1, 'gaunled', 'gaunled', 'gaunled@gmail.com', '', '', '', '', '', '', '2017-02-22 16:49:24', NULL);
+(1, 'admin', 'admin', 'admin@steam.com', '1.png', '', '', '', '', '', '2017-03-01 00:00:00', NULL);
 
 --
 -- Indexes for dumped tables
