@@ -122,6 +122,16 @@ float:left;
     padding: 9px;
     line-height: 15px;
 }
+.firstpost {
+    background-color: rgba( 84, 133, 183, 0.4);
+    height: 150px;
+    margin-bottom: 2px;
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-left: 5px;
+    width: 622px;
+    padding: 9px;
+}
 .contentth {
     background-color: rgba( 84, 133, 183, 0.4);
     height: 48px;

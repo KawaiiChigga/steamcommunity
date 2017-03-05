@@ -12,7 +12,7 @@
             </div>
             <div style="background-color:rgb(23,26,33); width: 700px; height:325px; margin-left: 200px;margin-top: 20px ; padding-top: 5px;padding-left: 30px; padding-right: 30px;">
                 <div class="form-group">
-                    <form action="semprot.com" method="post">
+                    <form action="newthread" method="post">
                 
                 <text style="color:white; font-size:12px;">START A NEW THREAD</text><hr>
                 

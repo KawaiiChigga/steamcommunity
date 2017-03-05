@@ -6,6 +6,7 @@
 package servlets;
 
 import controller.CtrlAccount;
+import controller.CtrlThread;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -15,15 +16,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Discussion;
 import model.User;
-
-
+import model.Thread;
 /**
  *
  * @author Daniel
  */
-@WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
-public class RegisterServlet extends HttpServlet {
+@WebServlet(name = "RegisterServlet", urlPatterns = {"/newthread"})
+public class NewThreadServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -76,20 +77,17 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User u = new User(
-                request.getParameter("txtAccount"), 
-                request.getParameter("txtPassword"), 
-                request.getParameter("txtEmail"), 
-                "", 
-                "", 
-                "",
-                "",
-                "",
-                "",
-                new Date()
+        Thread u;
+        u = new Thread(
+                null,
+                null,
+                request.getParameter("threadname"), 
+                new Date(),
+                (byte) 0,
+                (byte) 0
         );
         
-        CtrlAccount.createAccount(u);
+        CtrlThread.insertThread(u);
         response.sendRedirect("index.jsp");
 //        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 //        rd.forward(request, response);
