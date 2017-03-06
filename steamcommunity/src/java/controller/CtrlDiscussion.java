@@ -32,6 +32,21 @@ public class CtrlDiscussion {
         
         return hasil;
     }
+    public static Discussion getDisc(Integer did) {
+        Session session = Factory.getInstance().openSession();
+        Transaction tx = session.beginTransaction();
+        Discussion d = null;
+        try {
+            Query q = session.createQuery("from Discussion where discussionID=?");
+            q.setInteger(0, did);
+            
+            d = (Discussion) q.uniqueResult();
+            tx.commit();
+        } catch (Exception e) {
+        }
+        session.close();
+        return d;
+    }
     public static boolean insertDiscussion(Discussion d)
     {
         Session session = Factory.getInstance().openSession();
