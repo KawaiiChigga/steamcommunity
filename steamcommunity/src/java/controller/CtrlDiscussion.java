@@ -47,14 +47,14 @@ public class CtrlDiscussion {
         session.close();
         return d;
     }
-    public static boolean insertDiscussion(Discussion d)
+    public static Discussion insertDiscussion(Discussion d)
     {
         Session session = Factory.getInstance().openSession();
-        ArrayList<Discussion> hasil = null;
         Transaction tx = session.beginTransaction();
         session.saveOrUpdate(d);
+        Discussion temp = d;
         tx.commit();
         session.close();
-        return true;
+        return temp;
     }
 }

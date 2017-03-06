@@ -62,35 +62,46 @@ a, a:hover{
 }
 
 .gamelogos{
-margin:10px;
-float:left;
-margin-right:15px;
+    margin:10px;
+    float:left;
+    margin-right:15px;
 }
 
 .discussionbar{
-background-color:rgb(16,25,34);
-width: 100%;
-height:72px;
-line-height:72px;
-float:left;
-margin-top: 5px;
+    background-color:rgb(16,25,34);
+    width: 100%;
+    height:68px;
+    line-height:68px;
+    float:left;
+    padding: 11px 9px;
 }
 
+.discussionbarlogo {
+    position: relative;
+    float: left;
+    width: 120px;
+    height: 45px;
+    margin-right: 20px;
+    background-position: center center;
+    box-shadow: 0px 0px 3px 0px rgba(20,20,20,0.75);
+}
 .viewall{
-font-family:lato;
-text-align:right;
-font-size:12px;
-color:white;
-float:right;
-margin-right:10px;
+    font-family:lato;
+    text-align:right;
+    font-size:12px;
+    color:white;
+    float:right;
+    margin-right:10px;
+    margin-top:-10px;
 }
 
 .discussiontitle{
-font-family:arial;
-color:white;
-font-size:14px;
-vertical-align:middle;
-float:left;
+    font-family:arial;
+    color:white;
+    font-size:14px;
+    vertical-align:middle;
+    float:left;
+    margin-top:-10px;
 }
 
 .loginbutton{

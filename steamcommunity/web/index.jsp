@@ -38,16 +38,18 @@
                         data = da.getAllDiscussion();
                     
                         for (int i = 0; i < data.size(); i++) {
-                           Discussion temp = data.get(i);
-                           %>
+                            Discussion temp = data.get(i);
+                            %>
      
-                           <div class="discussionbar">
-                     <%
-                           out.print("<a href=thread.jsp class=gamelogos>"+temp.getImgurl()+"</a>");
-                           out.print("<a href=thread.jsp class=discussiontitle>"+ temp.getGamename()+"</a>");
-                     %>     
-                            <a href="thread.jsp" class="viewall">VIEW ALL</a>
-                        </div>
+                            <div class="discussionbar">
+                                <div class="discussionbarlogo" style="
+                                    background-image: url('image/games/<%=temp.getImgurl()%>');
+                                    background-repeat: no-repeat;
+                                    background-size: contain;">
+                                </div>
+                                <a href="thread.jsp?id=<%=temp.getDiscussionId()%>" class="discussiontitle"><%=temp.getGamename()%></a>
+                                <a href="thread.jsp?id=<%=temp.getDiscussionId()%>" class="viewall">VIEW ALL</a>
+                            </div>
                     <%
                         }
                     %>
@@ -58,7 +60,7 @@
                             if (u.getUserId() == 1) {
                     %>
                             <div class="contenthomeright">
-                                <a href="discussion.jsp"><input type="button" value="Create New Discussion"></a>
+                                <a href="addDiscussion.jsp"><input type="button" value="Create New Discussion"></a>
                             </div>
                     <%
                             }
