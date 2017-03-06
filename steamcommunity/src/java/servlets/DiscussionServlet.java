@@ -74,13 +74,13 @@ public class DiscussionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//         Discussion d = new Discussion( 
-//                request.getParameter("txtGameName"), 
-//                request.getParameter("txtDescription"), 
-//                request.getParameter("txtImg")
-//        );
+         Discussion d = new Discussion( 
+                request.getParameter("txtGameName"), 
+                request.getParameter("txtDescription"), 
+                request.getParameter("txtImg")
+        );
          
-//        CtrlDiscussion.insertDiscussion(d);
+       CtrlDiscussion.insertDiscussion(d);
         response.sendRedirect("index.jsp");
     }
 

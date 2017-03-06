@@ -16,33 +16,32 @@
         <jsp:include page="head.jsp" flush="true" />
     </head>
     <body>
-        <%
-            CtrlThread ct = new CtrlThread();
-            ArrayList<Thread> data = new ArrayList<Thread>();
-            data = ct.getAllThread();
-        %>
         <div class="container">
             <jsp:include page="header.jsp" flush="true" />
             <div class="content">
                 <jsp:include page="headerthread.jsp" flush="true" />
                 <div class="contentthread">
                     <div class="contentthreadleft">
-                        
-                <%
-                        for (int i = 0; i < 10; i++) {
-//                           Thread temp = data.get(i);
-//                           out.print("<div class=contentth>");
-//                           out.print(temp.getTitle()+"<br/>");
-//                           out.print("</div>");
-                            out.println("<div class='contentth'>");
-                            out.println("<h4>help me</h4>");
-                            out.println("</div>");
-                        }
-                %>
+                        <%
+                            CtrlThread da = new CtrlThread();
+                            ArrayList<Thread> data = new ArrayList<Thread>();
+                            data = da.getAllThread();
+
+                            for (int i = 0; i < data.size(); i++) {
+                                Thread temp = data.get(i);
+                        %>
+
+                        <%
+                                out.println("<div class=contentth>");
+                                out.println("<h4>" + temp.getTitle() + "</h4>");
+                                out.println("</div>");
+                            }
+                        %>
                     </div>
                 </div>
             </div>
-            <jsp:include page="footer.jsp" flush="true" />
+
         </div>
+        <jsp:include page="footer.jsp" flush="true" />
     </body>
 </html>

@@ -23,8 +23,10 @@
                 <input type="text" style="width:500px;color:black" name="txtGameName" /><br/>
                 Description:<br/>
                 <textarea name="txtDescription" rows="10" cols="20" style="width:500px;color:black"></textarea><br/>
+                Moderator:<br/>
+                <input type="text" style="width:500px;color:black" name="txtModerator" /><br/><br/>
                 Image:<br/>
-                <input type="text" style="width:500px;color:black" name="txtImg" /><br/><br/>
+                <input type="file" style="width:500px;color:black" name="txtImg" /><br/><br/>
                 <input type="submit" value="Submit" style="color:black"><br/>
                 </form>
             </div>

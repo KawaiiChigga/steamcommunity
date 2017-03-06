@@ -36,9 +36,7 @@
                         CtrlDiscussion da = new CtrlDiscussion();
                         ArrayList<Discussion> data = new ArrayList<Discussion>();
                         data = da.getAllDiscussion();
-                     %>
-                     
-                     <%
+                    
                         for (int i = 0; i < data.size(); i++) {
                            Discussion temp = data.get(i);
                            %>
