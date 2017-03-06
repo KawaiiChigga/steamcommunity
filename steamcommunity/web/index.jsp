@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.Discussion"%>
+<%@page import="controller.CtrlDiscussion"%>
 <%@page import="model.User"%>
 <%@page import="controller.CtrlAccount"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,11 +33,21 @@
                 <div class="line"></div><br>
                 <div class="contenthomeleft">
                     <%
-                        for (int i = 0; i < 5; i++) {
-                    %>
-                        <div class="discussionbar">
-                            <img src="image/games/leavinglyndow.jpg" class="gamelogos">
-                            <a href="thread.jsp" class="discussiontitle">Leaving Lyndow</a>
+                        CtrlDiscussion da = new CtrlDiscussion();
+                        ArrayList<Discussion> data = new ArrayList<Discussion>();
+                        data = da.getAllDiscussion();
+                     %>
+                     
+                     <%
+                        for (int i = 0; i < data.size(); i++) {
+                           Discussion temp = data.get(i);
+                           %>
+     
+                           <div class="discussionbar">
+                     <%
+                           out.print("<a href=thread.jsp class=gamelogos>"+temp.getImgurl()+"</a>");
+                           out.print("<a href=thread.jsp class=discussiontitle>"+ temp.getGamename()+"</a>");
+                     %>     
                             <a href="thread.jsp" class="viewall">VIEW ALL</a>
                         </div>
                     <%
