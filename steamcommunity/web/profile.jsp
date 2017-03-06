@@ -45,7 +45,7 @@
                     %>
                             <a href="editprofile.jsp"><input type="button" value="Edit Profile"></a><br/><br/>
                             <a href="logout?logout=yes"><input type="button" value="Log Out"></a><br/><br/>
-                            <a href="discussion.jsp"><input type="button" value="New Thread"></a>
+                            
                     <%  
                         } else {
                             if (!CtrlFriends.checkFriend(ses.getUserId(), req.getUserId())) {

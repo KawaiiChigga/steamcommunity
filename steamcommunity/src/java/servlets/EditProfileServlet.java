@@ -61,12 +61,14 @@ public class EditProfileServlet extends HttpServlet {
                     FileItem item = (FileItem) iterator.next();
                     
                     if (!item.isFormField()) {
-                        String name = u.getUserId() + "." + FilenameUtils.getExtension(item.getName()); 
-                        String root = new File(request.getServletContext().getRealPath("")).getParentFile().getParent();
-                        File uploadedFile = new File(root + "/web" + SAVE_DIR + File.separator + name);
-                        item.write(uploadedFile);
-                        
-                        u.setImageUrl(name);
+                        if (!item.getName().equals("")) {
+                            String name = u.getUserId() + "." + FilenameUtils.getExtension(item.getName()); 
+                            String root = new File(request.getServletContext().getRealPath("")).getParentFile().getParent();
+                            File uploadedFile = new File(root + "/web" + SAVE_DIR + File.separator + name);
+                            item.write(uploadedFile);
+
+                            u.setImageUrl(name);
+                        }
                     } else {
                         switch (item.getFieldName()) {
                             case "txtProfileName" : u.setUsername(item.getString()); break;

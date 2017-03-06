@@ -69,7 +69,7 @@ margin-right:15px;
 
 .discussionbar{
 background-color:rgb(16,25,34);
-width:68%;
+width: 100%;
 height:72px;
 line-height:72px;
 float:left;
@@ -146,6 +146,16 @@ float:left;
 .contentthreadright {
     width: 254px;
     float: left;
+}
+.contenthomeleft {
+    float:left;
+    width: 700px;
+    margin-right: 10px;
+}
+.contenthomeright {
+    float:left;
+    width: 220px;
+    text-align: center;
 }
 
 .highlight {

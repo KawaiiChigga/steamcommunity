@@ -1,3 +1,5 @@
+<%@page import="model.User"%>
+<%@page import="controller.CtrlAccount"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,17 +28,32 @@
                 <br/>
                 <h3 style="color: #66C0F4">Game Forums</h3>
                 <div class="line"></div><br>
-                <%
-                    for (int i = 0; i < 5; i++) {
-                %>
-                    <div class="discussionbar">
-                        <img src="image/games/leavinglyndow.jpg" class="gamelogos">
-                        <a href="thread.jsp" class="discussiontitle">Leaving Lyndow</a>
-                        <a href="thread.jsp" class="viewall">VIEW ALL</a>
-                    </div>
-                <%
-                    }
-                %>
+                <div class="contenthomeleft">
+                    <%
+                        for (int i = 0; i < 5; i++) {
+                    %>
+                        <div class="discussionbar">
+                            <img src="image/games/leavinglyndow.jpg" class="gamelogos">
+                            <a href="thread.jsp" class="discussiontitle">Leaving Lyndow</a>
+                            <a href="thread.jsp" class="viewall">VIEW ALL</a>
+                        </div>
+                    <%
+                        }
+                    %>
+                </div>
+                    <%
+                        User u = CtrlAccount.getUser((Integer) session.getAttribute("currentsession"));
+                        if (u != null) {
+                            if (u.getUserId() == 1) {
+                    %>
+                            <div class="contenthomeright">
+                                <a href="discussion.jsp"><input type="button" value="Create New Discussion"></a>
+                            </div>
+                    <%
+                            }
+                        }
+                    %>
+                
             </div>
             
         </div>
