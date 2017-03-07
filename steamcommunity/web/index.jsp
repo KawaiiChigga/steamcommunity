@@ -23,8 +23,8 @@
                     or report the post. Flaming the offensive user will only increase the problem. 
                     Harassment is not tolerated. </p>
 
-                <form action="#" method="GET">
-                    <input type="text" name="search" placeholder="Search discussions" />
+                <form action="search.jsp" method="get">
+                    <input type="text" name="Searching" placeholder="Search discussions" />
                     <input type="submit" value="Search" />
                 </form>
 

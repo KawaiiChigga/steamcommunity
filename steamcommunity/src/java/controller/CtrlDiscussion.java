@@ -32,6 +32,19 @@ public class CtrlDiscussion {
         
         return hasil;
     }
+    public ArrayList<Discussion> getAllSearch(String cari)
+    {
+        Session session = Factory.getInstance().openSession();
+        ArrayList<Discussion> hasil = null;
+        Transaction tx = session.beginTransaction();
+        Query q = session.createQuery("from Discussion where gamename like'%"+cari+"%' or description like'%"+cari+"%'");
+        hasil = (ArrayList<Discussion>) q.list();
+        
+        tx.commit();
+        session.close();
+        
+        return hasil;
+    }
     public static Discussion getDisc(Integer did) {
         Session session = Factory.getInstance().openSession();
         Transaction tx = session.beginTransaction();

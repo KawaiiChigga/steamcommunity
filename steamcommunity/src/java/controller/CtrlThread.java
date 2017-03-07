@@ -31,6 +31,19 @@ public class CtrlThread {
         session.close();
         return hasil;
     }
+     public ArrayList<Thread> getAllSearch(String cari,int id)
+    {
+        Session session = Factory.getInstance().openSession();
+        ArrayList<Thread> hasil = null;
+        Transaction tx = session.beginTransaction();
+        Query q = session.createQuery("from Thread where discussionId like '"+id+"'and gamename like'%"+cari+"%' or description like'%"+cari+"%'");
+        hasil = (ArrayList<Thread>) q.list();
+        
+        tx.commit();
+        session.close();
+        
+        return hasil;
+    }
     public static Thread insertThread(Thread t)
     {
         Session session = Factory.getInstance().openSession();
