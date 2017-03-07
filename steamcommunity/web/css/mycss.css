@@ -135,6 +135,7 @@ a, a:hover{
     width: 622px;
     padding: 9px;
     line-height: 15px;
+    float:left;
 }
 .firstpost {
     background-color: rgba( 84, 133, 183, 0.4);
@@ -150,13 +151,19 @@ a, a:hover{
     background-color: rgba( 84, 133, 183, 0.4);
     height: 48px;
     margin-bottom: 2px;
-    padding-top: 5px;
+    padding-top: 15px;
     padding-right: 15px;
-    padding-left: 5px;
+    padding-left: 20px;
+    font-size: 15px;
+    color: white;
 }
 .contentthreadright {
     width: 254px;
-    float: left;
+    float: right;
+}
+.contentbox {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 10px;
 }
 .contenthomeleft {
     float:left;
@@ -346,6 +353,7 @@ a, a:hover{
     margin-right:-8px;
     background-color: #101822;
     height: 120px;
+  
 }
 
 .footerlogo{

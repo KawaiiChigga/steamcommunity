@@ -6,6 +6,8 @@
 package servlets;
 
 import controller.CtrlAccount;
+import controller.CtrlDiscussion;
+import controller.CtrlPost;
 import controller.CtrlThread;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,78 +19,47 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Discussion;
+import model.Post;
 import model.User;
 import model.Thread;
 /**
  *
  * @author Daniel
  */
-@WebServlet(name = "RegisterServlet", urlPatterns = {"/newthread"})
+@WebServlet(name = "NewThreadServlet", urlPatterns = {"/newthread"})
 public class NewThreadServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RegisterServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //        processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Thread u;
-        u = new Thread(
-                null,
-                null,
-                request.getParameter("threadname"), 
-                new Date(),
-                (byte) 0,
-                (byte) 0
+        User cur = CtrlAccount.getUser((Integer) request.getSession().getAttribute("currentsession"));
+        Thread u = new Thread(
+                CtrlDiscussion.getDisc(Integer.parseInt(request.getParameter("idDiscussion"))), 
+                cur, 
+                request.getParameter("txtTitle"), 
+                new Date(), 
+                (byte) 0, 
+                (byte) Integer.parseInt(request.getParameter("rbPost"))
         );
         
-        CtrlThread.insertThread(u);
-        response.sendRedirect("index.jsp");
+        u = CtrlThread.insertThread(u);
+        
+        Post p = new Post(
+                u, 
+                cur, 
+                request.getParameter("txtContent"), 
+                new Date(), 
+                new Date()
+        );
+        
+        CtrlPost.insertPost(p);
+        response.sendRedirect("post.jsp?tid=" + u.getThreadId() + "&id="+ u.getDiscussion().getDiscussionId());
 //        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 //        rd.forward(request, response);
     }

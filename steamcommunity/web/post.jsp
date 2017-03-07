@@ -17,9 +17,7 @@
     </head>
     <body>
         <%
-            CtrlThread ct = new CtrlThread();
-            ArrayList<Thread> data = new ArrayList<Thread>();
-            data = ct.getAllThread();
+            
         %>
         <div class="container">
             <jsp:include page="header.jsp" flush="true" />
@@ -27,7 +25,8 @@
                 <jsp:include page="headerthread.jsp" flush="true" />
                 <div class="contentthread">
                     <div style="float:left;padding: 10px;">
-                        image</div>
+                        image
+                    </div>
                     <div class="firstpost">
                         <h4>Username</h4>
                         <h2>WHY THREAD DOESNT WORK</h2>WAWAWAWAWAWA PUT YOUR HANDS UP
@@ -47,6 +46,7 @@
                 %>
                     </div>
                 </div>
+                <div style="clear:both"></div>
             </div>
             <jsp:include page="footer.jsp" flush="true" />
         </div>

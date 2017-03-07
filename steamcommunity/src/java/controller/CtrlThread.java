@@ -20,7 +20,7 @@ import org.hibernate.cfg.Configuration;
  */
 public class CtrlThread {
     
-    public ArrayList<Thread> getAllThread()
+    public static ArrayList<Thread> getAllThread()
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Thread> hasil = null;
@@ -31,14 +31,14 @@ public class CtrlThread {
         session.close();
         return hasil;
     }
-    public static boolean insertThread(Thread t)
+    public static Thread insertThread(Thread t)
     {
         Session session = Factory.getInstance().openSession();
-        ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
         session.saveOrUpdate(t);
+        Thread th = t;
         tx.commit();
         session.close();
-        return true;
+        return th;
     }
 }
