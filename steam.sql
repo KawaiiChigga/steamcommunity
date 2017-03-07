@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2017 at 07:37 AM
+-- Generation Time: Mar 07, 2017 at 05:29 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -29,9 +29,13 @@ SET time_zone = "+00:00";
 CREATE TABLE `discussion` (
   `discussionID` int(11) NOT NULL,
   `gamename` varchar(50) NOT NULL,
-  `description` varchar(256) NOT NULL,
+  `description` text NOT NULL,
   `imgurl` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `discussion`
+--
 
 -- --------------------------------------------------------
 
@@ -44,6 +48,11 @@ CREATE TABLE `friends` (
   `friendID` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `friends`
+--
+
 
 -- --------------------------------------------------------
 
@@ -60,6 +69,11 @@ CREATE TABLE `post` (
   `updateDateTime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `post`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -75,6 +89,11 @@ CREATE TABLE `thread` (
   `isPinned` tinyint(4) NOT NULL,
   `categoryType` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `thread`
+--
+
 
 -- --------------------------------------------------------
 
