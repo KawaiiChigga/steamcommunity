@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import model.Post;
 import network.Factory;
 import org.hibernate.Query;
@@ -31,5 +32,21 @@ public class CtrlPost {
         tx.commit();
         session.close();
         return post;
+    }
+    
+    public static ArrayList<Post> getAllPost(Integer threadID) {
+        Session session = Factory.getInstance().openSession();
+        Transaction tx = session.beginTransaction();
+        ArrayList <Post> p = null;
+        try {
+            Query q = session.createQuery("from Post where threadID=? ORDER BY postDateTime ASC");
+            q.setInteger(0, threadID);
+            
+            p = (ArrayList<Post>) q.list();
+            tx.commit();
+        } catch (Exception e) {
+        }
+        session.close();
+        return p;
     }
 }

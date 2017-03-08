@@ -4,6 +4,7 @@
     Author     : Sujana
 --%>
 
+<%@page import="controller.CtrlPost"%>
 <%@page import="controller.CtrlThread"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Thread"%>
@@ -17,7 +18,7 @@
     </head>
     <body>
         <%
-            
+            System.out.println("WOI " + CtrlPost.getAllPost((Integer.parseInt(request.getParameter("tid")))));
         %>
         <div class="container">
             <jsp:include page="header.jsp" flush="true" />
@@ -29,7 +30,8 @@
                     </div>
                     <div class="firstpost">
                         <h4>Username</h4>
-                        <h2>WHY THREAD DOESNT WORK</h2>WAWAWAWAWAWA PUT YOUR HANDS UP
+                        <h2>></h2>
+                            <%= CtrlPost.getAllPost((Integer.parseInt(request.getParameter("tid")))).get(0).getMessage() %>
                     </div>
                     <div class="contentthreadleft">
                         
