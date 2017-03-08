@@ -32,7 +32,7 @@ public class CtrlDiscussion {
         
         return hasil;
     }
-    public ArrayList<Discussion> getAllSearch(String cari)
+    public static ArrayList<Discussion> getAllSearch(String cari)
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Discussion> hasil = null;

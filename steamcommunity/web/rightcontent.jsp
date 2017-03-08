@@ -9,8 +9,9 @@
         cat = 0;
     }
 %>
-<form action="#" method="GET">
+<form action="search.jsp" method="GET">
     <input type="text" name="search" placeholder="Search topics" />
+    <input type="hidden" name="discID" value="<%=request.getParameter("id")%>"/>
     <input type="submit" value="Search" />
 </form>
 <br/>

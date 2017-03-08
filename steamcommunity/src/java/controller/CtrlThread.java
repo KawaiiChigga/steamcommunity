@@ -52,12 +52,12 @@ public class CtrlThread {
         
         
     }
-     public ArrayList<Thread> getAllSearch(String cari,int id)
+     public static ArrayList<Thread> getAllSearch(String cari, Integer index)
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from Thread where discussionId like '"+id+"'and gamename like'%"+cari+"%' or description like'%"+cari+"%'");
+        Query q = session.createQuery("from Thread where discussionID="+index+"and title like'%"+cari+"%'");
         hasil = (ArrayList<Thread>) q.list();
         
         tx.commit();
