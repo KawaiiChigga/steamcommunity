@@ -45,6 +45,7 @@
                             <div class="firstcontent">
                                 <h2><%= currentThread.getTitle() %></h2>
                                 <text><%= posts.get(0).getMessage().replace("\n", "<br />") %></text>
+                                <p style="text-align: right; font-size: 13px;">#1</p>
                             </div>
                         </div>
                     <%
@@ -63,7 +64,8 @@
                                     </div>
                                 </div>
                                 <div class="allpostcontent">
-                                    <text><%= posts.get(i).getMessage().replace("\n", "<br />") %></text>
+                                    <text><%= posts.get(i).getMessage().replace("\n", "<br />") %></text> <br/>
+                                    <p style="text-align: right; font-size: 13px;">#<%=i+1%></p>
                                 </div>
                             </div>
                         <%
@@ -78,6 +80,11 @@
                         </div>
                     </div>
                     <div class="contentthreadright">
+                        <div class="contentbox">
+                            Date Posted: <%=currentThread.getPublishDateTime()%> <br/>
+                            Posts: <%=posts.size()%>
+                        </div>
+                        <br/>
                         <jsp:include page="rightcontent.jsp" flush="true" />
                     </div>
                     <div style="clear:both"></div>
