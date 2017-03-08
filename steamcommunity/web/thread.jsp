@@ -33,29 +33,36 @@
                     if (showThread.equals("true")) {
                 %>
                         <div class="contentthreadleft">
-                            <p><%=d.getDescription()%></p>
+                            <p><%=(d.getDescription()).replace("\n", "<br/>")%></p>
                         </div>
                 <%
                     } else {
                 %>
                         <div class="contentthreadleft">
                         <%
-                            ArrayList<Thread> data = CtrlThread.getAllThread(d.getDiscussionId());
-
+                            int category;
+                            if (request.getParameter("categoryID") != null) {
+                                category = Integer.parseInt(request.getParameter("categoryID"));
+                            } else {
+                                category = 1;
+                            }
+                            ArrayList<Thread> data;
+                            if (category == 2) {
+                                data = CtrlThread.getAllThread(d.getDiscussionId(), 2);
+                            } else {
+                                data = CtrlThread.getAllThread(d.getDiscussionId(), 1);
+                            }
                             for (int i = 0; i < data.size(); i++) {
                                 Thread temp = data.get(i);
-                        %>
-
-                        <%
                                 out.println("<a href='post.jsp?tid=" + temp.getThreadId() + "&id=" + d.getDiscussionId() + "'><div class=contentth>");
                                 out.println(temp.getTitle() + "<p class='viewall' style='margin-top:0px;'>" + temp.getPublishDateTime() + "</p>");
                                 out.println("</div></a>");
                             }
                         %>
                         </div>
-                <%
-                    }
-                %>
+                    <%
+                        }
+                    %>
                     <div class="contentthreadright">
                         <form action="#" method="GET">
                             <input type="text" name="search" placeholder="Search topics" />
@@ -69,8 +76,8 @@
                         <div class="contentbox">
                             <a>SUB FORUMS</a> <br/>
                             <div class="line" ></div>
-                            <a href="#"><h4>General Discussion</h4></a> 
-                            <a href="#"><h4>Trading</h4></a>
+                            <a href="thread.jsp?id=<%=d.getDiscussionId()%>&categoryID=1"><h4>General Discussion</h4></a> 
+                            <a href="thread.jsp?id=<%=d.getDiscussionId()%>&categoryID=2"><h4>Trading</h4></a>
                         </div>
                     </div>
                 </div>

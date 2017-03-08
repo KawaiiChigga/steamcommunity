@@ -25,6 +25,7 @@
                 <input type="hidden" name="idDiscussion" value="<%=request.getParameter("id")%>"/>
                 </form>
             </div>
+            <div style="clear:both"></div>
         </div>
         <jsp:include page="footer.jsp" flush="true" />
     </body>

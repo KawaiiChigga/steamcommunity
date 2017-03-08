@@ -20,13 +20,14 @@ import org.hibernate.cfg.Configuration;
  */
 public class CtrlThread {
     
-    public static ArrayList<Thread> getAllThread(Integer disID)
+    public static ArrayList<Thread> getAllThread(Integer disID, Integer category)
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from Thread where discussionID=?");
+        Query q = session.createQuery("from Thread where discussionID=? and categoryType=?");
         q.setInteger(0, disID);
+        q.setInteger(1, category);
         
         hasil = (ArrayList<Thread>) q.list();
         tx.commit();
