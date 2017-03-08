@@ -15,13 +15,14 @@
                 <p style="color:white">Start a new thread</p><hr/> 
                 <form action="newthread" method="POST">
                 Title:<br/>
-                <input type="text" style="width:500px;color:black" name="txtTitle" /><br/>
+                <input style="background-color:rgb(15,25,40); color:white;" type="text" class="form-control" id="usr" name="txtTitle" placeholder="enter a title"><br>
                 Content:<br/>
-                <textarea name="txtContent" rows="10" cols="20" style="width:500px;color:black"></textarea><br/>
+                <textarea style="resize:none;background-color:rgb(15,25,40); color:white;" class="form-control" rows="10" id="comment" name="txtContent" placeholder="say something"></textarea>
+                <br/>
                 Post In:<br/>
                 <input type="radio" name="rbPost" value="1" />General Discussion <br/>
                 <input type="radio" name="rbPost" value="2" />Trading <br/>
-                <input type="submit" value="Post Thread" style="color:black"><br/>
+                <input type="submit" class="btn btn-default" style="background-color:rgb(0,100,0);width:25%; color:white; float:right; font-family: lato; font-size: 16px;" value="Post Thread">
                 <input type="hidden" name="idDiscussion" value="<%=request.getParameter("id")%>"/>
                 </form>
             </div>
