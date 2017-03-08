@@ -4,6 +4,9 @@
     Author     : Sujana
 --%>
 
+<%@page import="model.User"%>
+<%@page import="model.Post"%>
+<%@page import="controller.CtrlAccount"%>
 <%@page import="controller.CtrlPost"%>
 <%@page import="controller.CtrlThread"%>
 <%@page import="java.util.ArrayList"%>
@@ -18,31 +21,34 @@
     </head>
     <body>
         <%
-            System.out.println("WOI " + CtrlPost.getAllPost((Integer.parseInt(request.getParameter("tid")))));
+            Thread currentThread = CtrlThread.getThread((Integer.parseInt(request.getParameter("tid"))));
+            ArrayList<Post> posts = CtrlPost.getAllPost((Integer.parseInt(request.getParameter("tid"))));
+            User poster = CtrlAccount.getUser(currentThread.getUser().getUserId());
         %>
         <div class="container">
             <jsp:include page="header.jsp" flush="true" />
             <div class="content">
                 <jsp:include page="headerthread.jsp" flush="true" />
                 <div class="contentthread">
-                    <div style="float:left;padding: 10px;">
-                        image
-                    </div>
+                    <div class="edit_profile_avatar" style="background-image: url('image/user/<%= poster.getImageUrl() %>'); background-repeat: no-repeat; background-size:contain; ">
+                    </div> 
                     <div class="firstpost">
-                        <h4>Username</h4>
-                        <h2>></h2>
-                            <%= CtrlPost.getAllPost((Integer.parseInt(request.getParameter("tid")))).get(0).getMessage() %>
+                        <h4><%= poster.getUsername() %></h4>
+                        <h2><%= currentThread.getTitle() %></h2>
+                        <text><%= posts.get(0).getMessage().replace("\n", "<br />") %></text>
                     </div>
                     <div class="contentthreadleft">
-                        
+                    
                 <%
-                        for (int i = 0; i < 10; i++) {
+                        for (int i = 1; i<posts.size() ; i++) {
 //                           Thread temp = data.get(i);
 //                           out.print("<div class=contentth>");
 //                           out.print(temp.getTitle()+"<br/>");
 //                           out.print("</div>");
-                            out.println("<div class='contentth'>");
-                            out.println("<h4>help me</h4>");
+                            User usercom = CtrlAccount.getUser(posts.get(i).getUser().getUserId());
+                            out.println("<div class='contentpost'>");
+                            out.println("<h5>" + usercom.getUsername() + "</h5>");
+                            out.println("<h4>" + posts.get(i).getMessage().replace("\n", "<br />")  + "</h4>");
                             out.println("</div>");
                         }
                 %>
