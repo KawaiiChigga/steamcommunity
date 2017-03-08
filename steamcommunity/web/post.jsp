@@ -52,7 +52,20 @@
                             out.println("</div>");
                         }
                 %>
+                <div class="form-group">
+                    <form action="newPost" method="post">
+                
+     
+                
+                        <br>
+                <textarea style="resize:none;background-color:rgb(15,25,40); color:white;" class="form-control" rows="5" id="comment" name="postcontent" placeholder="say something"></textarea>
+                <br>
+                <input type="submit" class="btn btn-default" style="background-color:rgb(0,100,0);width:25%; color:white; float:right; font-family: lato; font-size: 16px;" value="Post Reply">
+                <input type="hidden" name="threadid" value="<%= currentThread.getThreadId() %>">
+                    </form>
+                </div>
                     </div>
+                    
                 </div>
                 <div style="clear:both"></div>
             </div>
