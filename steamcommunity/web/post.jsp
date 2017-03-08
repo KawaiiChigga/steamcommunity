@@ -16,7 +16,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Start Your Thread</title>
         <jsp:include page="head.jsp" flush="true" />
     </head>
     <body>
@@ -30,44 +29,59 @@
             <div class="content">
                 <jsp:include page="headerthread.jsp" flush="true" />
                 <div class="contentthread">
-                    <div class="edit_profile_avatar" style="background-image: url('image/user/<%= poster.getImageUrl() %>'); background-repeat: no-repeat; background-size:contain; ">
-                    </div> 
-                    <div class="firstpost">
-                        <h4><%= poster.getUsername() %></h4>
-                        <h2><%= currentThread.getTitle() %></h2>
-                        <text><%= posts.get(0).getMessage().replace("\n", "<br />") %></text>
-                    </div>
                     <div class="contentthreadleft">
-                    
-                <%
+                        
+                        <div class="firstpost">
+                            <div class="headpost">
+                                <div class="profile_post" style="
+                                    background-image: url('image/user/<%= poster.getImageUrl() %>'); 
+                                    background-repeat: no-repeat; 
+                                    background-size:contain; ">
+                                </div> 
+                                <div class="profile_namepost">
+                                    <a href="profile.jsp?uid=<%=poster.getUserId()%>"><%= poster.getUsername() %> </a>
+                                </div>
+                            </div>
+                            <div class="firstcontent">
+                                <h2><%= currentThread.getTitle() %></h2>
+                                <text><%= posts.get(0).getMessage().replace("\n", "<br />") %></text>
+                            </div>
+                        </div>
+                    <%
                         for (int i = 1; i<posts.size() ; i++) {
-//                           Thread temp = data.get(i);
-//                           out.print("<div class=contentth>");
-//                           out.print(temp.getTitle()+"<br/>");
-//                           out.print("</div>");
                             User usercom = CtrlAccount.getUser(posts.get(i).getUser().getUserId());
-                            out.println("<div class='contentpost'>");
-                            out.println("<h5>" + usercom.getUsername() + "</h5>");
-                            out.println("<h4>" + posts.get(i).getMessage().replace("\n", "<br />")  + "</h4>");
-                            out.println("</div>");
+                        %>
+                            <div class="contentpost">
+                                <div class="headpost">
+                                    <div class="profile_post" style="
+                                         background-image: url('image/user/<%=usercom.getImageUrl()%>'); 
+                                         background-repeat: no-repeat; 
+                                         background-size:contain; ">
+                                    </div> 
+                                    <div class="profile_namepost">
+                                        <a href="profile.jsp?uid=<%=usercom.getUserId()%>"><%= usercom.getUsername() %></a>
+                                    </div>
+                                </div>
+                                <div class="allpostcontent">
+                                    <text><%= posts.get(i).getMessage().replace("\n", "<br />") %></text>
+                                </div>
+                            </div>
+                        <%
                         }
-                %>
-                <div class="form-group">
-                    <form action="newPost" method="post">
-                
-     
-                
-                        <br>
-                <textarea style="resize:none;background-color:rgb(15,25,40); color:white;" class="form-control" rows="5" id="comment" name="postcontent" placeholder="say something"></textarea>
-                <br>
-                <input type="submit" class="btn btn-default" style="background-color:rgb(0,100,0);width:25%; color:white; float:right; font-family: lato; font-size: 16px;" value="Post Reply">
-                <input type="hidden" name="threadid" value="<%= currentThread.getThreadId() %>">
-                    </form>
-                </div>
+                    %>
+                        <div class="form-group">
+                            <form action="newPost" method="post"> <br/>
+                                <textarea style="resize:none;background-color:rgb(15,25,40); color:white;" class="form-control" rows="5" id="comment" name="postcontent" placeholder="say something"></textarea><br/>
+                                <input type="submit" class="btn btn-default" style="background-color:rgb(0,100,0);width:25%; color:white; float:right; font-family: lato; font-size: 16px;" value="Post Reply">
+                                <input type="hidden" name="threadid" value="<%= currentThread.getThreadId() %>">
+                            </form>
+                        </div>
                     </div>
-                    
+                    <div class="contentthreadright">
+                        <jsp:include page="rightcontent.jsp" flush="true" />
+                    </div>
+                    <div style="clear:both"></div>
                 </div>
-                <div style="clear:both"></div>
             </div>
             <jsp:include page="footer.jsp" flush="true" />
         </div>
