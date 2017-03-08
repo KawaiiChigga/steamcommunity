@@ -55,7 +55,7 @@
                             for (int i = 0; i < data.size(); i++) {
                                 Thread temp = data.get(i);
                                 out.println("<a href='post.jsp?tid=" + temp.getThreadId() + "&id=" + d.getDiscussionId() + "'><div class=contentth>");
-                                out.println(temp.getTitle() + "<p class='viewall' style='margin-top:0px;'>" + temp.getPublishDateTime() + "</p>");
+                                out.println(temp.getTitle() + "<p class='viewall' style='margin-top:-1px;'>" + temp.getPublishDateTime() + "</p>");
                                 out.println("</div></a>");
                             }
                         %>

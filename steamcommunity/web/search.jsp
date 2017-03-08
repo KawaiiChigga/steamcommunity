@@ -44,18 +44,15 @@
                             }
                         }else if(carithread!=null){
                             int index = Integer.parseInt(request.getParameter("discID"));
-                            CtrlThread ct = new CtrlThread();
-                            ArrayList<Thread> da = new ArrayList<Thread>();
-                           da = ct.getAllSearch(carithread,index);
-                          out.print("<h3 style=color:#66C0F4>Keyword: " + carithread + "</h3>");
-                           out.print("<div class=line></div><br>");
+                            ArrayList<Thread> da = CtrlThread.getAllSearch(carithread, index);
+                            out.print("<h3 style=color:#66C0F4>Keyword: " + carithread + "</h3>");
+                            out.print("<div class=line></div><br>");
                             for (int i = 0; i < da.size(); i++) {
-                            %>
+                    %>
                             <div class="discussionbar">
                                 <%
                                 Thread temp = da.get(i);
-                               out.print(temp.getTitle());
-                                out.print(temp.getPosts());
+                                out.print(temp.getTitle());
                             }
                             
                             }

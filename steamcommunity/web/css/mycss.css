@@ -253,6 +253,26 @@ a, a:hover{
     padding: 9px;
     line-height: 15px;
 }
+.activity {
+    background-color: #252a36;
+    font-size: 15px;
+    color: white;
+}
+.activitytitle {
+    padding-top: 10px;
+    margin-top:20px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+.activitycontent{
+    background-color: rgba( 84, 133, 183, 0.4);
+    
+    height: 48px;
+    margin-bottom: 2px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 20px;
+}
 .joinbox {
     background-color: #000;
     background-color: rgba(0,0,0,0.2);
@@ -316,7 +336,7 @@ a, a:hover{
 
     padding: 0px 20px 64px 20px;
     width: 926px;
-    height: 600px;
+    min-height: 600px;
     margin: 0 auto;
 
     font-size: 13px;

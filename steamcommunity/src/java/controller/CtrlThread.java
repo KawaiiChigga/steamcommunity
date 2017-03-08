@@ -57,9 +57,12 @@ public class CtrlThread {
         Session session = Factory.getInstance().openSession();
         ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from Thread where discussionID="+index+"and title like'%"+cari+"%'");
-        hasil = (ArrayList<Thread>) q.list();
-        
+        try {
+            Query q = session.createQuery("from Thread where discussionID="+index+" and title like'%"+cari+"%'");
+            hasil = (ArrayList<Thread>) q.list();
+        } catch (Exception e ){
+            e.printStackTrace();
+        }
         tx.commit();
         session.close();
         

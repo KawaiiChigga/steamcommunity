@@ -1,8 +1,13 @@
+<%@page import="model.Discussion"%>
+<%@page import="controller.CtrlThread"%>
+<%@page import="model.Post"%>
+<%@page import="controller.CtrlPost"%>
 <%@page import="model.Friends"%>
 <%@page import="controller.CtrlFriends"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="controller.CtrlAccount"%>
 <%@page import="model.User"%>
+<%@page import="model.Thread"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -64,6 +69,24 @@
                 <div class="profile_content_left">
                     <h2>Recent Activity</h2>
                     <hr />
+                    
+                    <%
+                        ArrayList<Post> activity = CtrlPost.getPostByUserID(req.getUserId());
+                        for (int i = 0; i < activity.size(); i++) {
+                            Thread th = CtrlThread.getThread(activity.get(i).getThread().getThreadId());
+                    %>
+                            <div class="activity">
+                                <div class="activitytitle">
+                                    <a href="post.jsp?tid=<%=th.getThreadId()%>&id=<%=th.getDiscussion().getDiscussionId()%>"><%= th.getTitle() %></a>
+                                    <p class="viewall" style="margin-top: 2px;"><%=th.getPublishDateTime()%></p>
+                                </div>
+                                <div class="activitycontent">
+                                    <%=activity.get(i).getMessage()%>
+                                </div>
+                            </div>
+                    <%
+                        }
+                    %>
                 </div>
                 <div class="profile_content_right">
                     

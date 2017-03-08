@@ -49,4 +49,20 @@ public class CtrlPost {
         session.close();
         return p;
     }
+    
+    public static ArrayList<Post> getPostByUserID(Integer uid) {
+        Session session = Factory.getInstance().openSession();
+        Transaction tx = session.beginTransaction();
+        ArrayList <Post> p = null;
+        try {
+            Query q = session.createQuery("from Post where userID=? ORDER BY postDateTime DESC");
+            q.setInteger(0, uid);
+            
+            p = (ArrayList<Post>) q.list();
+            tx.commit();
+        } catch (Exception e) {
+        }
+        session.close();
+        return p;
+    }
 }
