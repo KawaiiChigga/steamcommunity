@@ -45,7 +45,7 @@ public class EditProfileServlet extends HttpServlet {
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         
         if (isMultipart) {
-            int maxFileSize = 50 * 1024;
+            int maxFileSize = 200 * 1024;
             int maxMemSize = 4 * 1024;
         
             DiskFileItemFactory factory = new DiskFileItemFactory();

@@ -40,7 +40,7 @@
                 %>
                         <div class="contentthreadleft">
                         <%
-                            ArrayList<Thread> data = CtrlThread.getAllThread();
+                            ArrayList<Thread> data = CtrlThread.getAllThread(d.getDiscussionId());
 
                             for (int i = 0; i < data.size(); i++) {
                                 Thread temp = data.get(i);

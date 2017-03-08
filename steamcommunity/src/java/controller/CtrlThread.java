@@ -20,16 +20,36 @@ import org.hibernate.cfg.Configuration;
  */
 public class CtrlThread {
     
-    public static ArrayList<Thread> getAllThread()
+    public static ArrayList<Thread> getAllThread(Integer disID)
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from Thread");
+        Query q = session.createQuery("from Thread where discussionID=?");
+        q.setInteger(0, disID);
+        
         hasil = (ArrayList<Thread>) q.list();
         tx.commit();
         session.close();
         return hasil;
+    }
+    
+    public static Thread getThread(Integer thID) {
+        Session session = Factory.getInstance().openSession();
+        Transaction tx = session.beginTransaction();
+        Thread th = null;
+        try {
+            Query q = session.createQuery("from Thread where threadID=?");
+            q.setInteger(0, thID);
+            
+            th = (Thread) q.uniqueResult();
+            tx.commit();
+        } catch (Exception e) {
+        }
+        session.close();
+        return th;
+        
+        
     }
      public ArrayList<Thread> getAllSearch(String cari,int id)
     {

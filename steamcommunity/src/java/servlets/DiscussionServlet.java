@@ -55,7 +55,7 @@ public class DiscussionServlet extends HttpServlet {
         Integer id = null;
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         if (isMultipart) {
-            int maxFileSize = 50 * 1024;
+            int maxFileSize = 200 * 1024;
             int maxMemSize = 4 * 1024;
         
             DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -66,9 +66,11 @@ public class DiscussionServlet extends HttpServlet {
             
             try {
                 List items = upload.parseRequest(request);
+                System.out.println("SIZE : "+ items.size());
                 Iterator iterator = items.iterator();
                 while (iterator.hasNext()) {
                     FileItem item = (FileItem) iterator.next();
+                    System.out.println(item.getString());
                     if (!item.isFormField()) {
                         if (!item.getName().equals("")) {
                             String name = d.getGamename()+ "." + FilenameUtils.getExtension(item.getName()); 
@@ -87,8 +89,10 @@ public class DiscussionServlet extends HttpServlet {
                     }
                 }
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+        System.out.println(d.getGamename());
         Discussion temp = CtrlDiscussion.insertDiscussion(d);
         User u = CtrlAccount.getUser(id);
         u.setDiscussion(temp);
