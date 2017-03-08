@@ -139,12 +139,20 @@ a, a:hover{
 }
 .firstpost {
     background-color: rgba( 84, 133, 183, 0.4);
-    margin-bottom: 2px;
+    margin-bottom: 8px;
     padding-top: 5px;
     padding-right: 15px;
     padding-left: 5px;
     width: 622px;
     padding: 9px;
+}
+.firstcontent {
+    margin-top: -15px;
+    margin-left: 50px;
+}
+.allpostcontent {
+    margin-left: 50px;
+    margin-bottom: 10px;
 }
 .contentth {
     background-color: rgba( 84, 133, 183, 0.4);
@@ -159,12 +167,11 @@ a, a:hover{
 .contentpost {
     background-color: rgba( 84, 133, 183, 0.4);
     margin-bottom: 2px;
-    padding-top: 5px;
+    margin-left: 15px;
+    padding-top: 10px;
     padding-bottom: 5px;
     padding-right: 15px;
-    padding-left: 20px;
-    font-size: 15px;
-    color: white;
+    padding-left: 10px;
 }
 .contentthreadright {
     width: 254px;
@@ -207,6 +214,27 @@ a, a:hover{
     width: 314px;
     float: left;
     padding: 17px 20px;
+}
+.profile_post {
+    position: relative;
+    float: left;
+    width: 36px;
+    height: 36px;
+    margin-right: 13px;
+    border: 1px solid;
+    border-color: black;
+    float: left;
+    background-position: center center;
+}
+.profile_namepost {
+    padding-top: 4px;
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+.headpost {
+    height: 36px;
 }
 .accountbox {
     background-color: #000;
