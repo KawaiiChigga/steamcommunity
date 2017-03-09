@@ -22,27 +22,27 @@
             <jsp:include page="header.jsp" flush="true" />
             <div class="content">
                 <div class="contenthomeleft">
-                    <%
-                        String cari = request.getParameter("Searching");
-                        String carithread = request.getParameter("search");
-                        String carif = request.getParameter("searchfriend");
-                        if (cari != null) {
-                            ArrayList<Discussion> dat = CtrlDiscussion.getAllSearch(cari);
-                            out.print("<h3 style=color:#66C0F4>Keyword: " + cari + "</h3>");
-                            out.print("<div class=line></div><br>");
-                            for (int i = 0; i < dat.size(); i++) {
-                                Discussion temp = dat.get(i);
-                    %> 
-                    <div class="discussionbar">
-                        <div class="discussionbarlogo" style="
-                             background-image: url('image/games/<%=temp.getImgurl()%>');
-                             background-repeat: no-repeat;
-                             background-size: contain;">
-                        </div>
-                        <a href="thread.jsp?id=<%=temp.getDiscussionId()%>" class="discussiontitle"><%=temp.getGamename()%></a>
-                        <a href="thread.jsp?id=<%=temp.getDiscussionId()%>" class="viewall">VIEW ALL</a>
-                    </div>
-                    <%
+                <%
+                    String cari = request.getParameter("Searching");
+                    String carithread = request.getParameter("search");
+                    String carif = request.getParameter("searchfriend");
+                    if (cari != null) {
+                        ArrayList<Discussion> dat = CtrlDiscussion.getAllSearch(cari);
+                        out.print("<h3 style=color:#66C0F4>Keyword: " + cari + "</h3>");
+                        out.print("<div class=line></div><br>");
+                        for (int i = 0; i < dat.size(); i++) {
+                            Discussion temp = dat.get(i);
+                %> 
+                            <div class="discussionbar">
+                                <div class="discussionbarlogo" style="
+                                     background-image: url('image/games/<%=temp.getImgurl()%>');
+                                     background-repeat: no-repeat;
+                                     background-size: contain;">
+                                </div>
+                                <a href="thread.jsp?id=<%=temp.getDiscussionId()%>" class="discussiontitle"><%=temp.getGamename()%></a>
+                                <a href="thread.jsp?id=<%=temp.getDiscussionId()%>" class="viewall">VIEW ALL</a>
+                            </div>
+                <%
                         }
                     } else if (carithread != null) {
                         int index = Integer.parseInt(request.getParameter("discID"));
@@ -51,11 +51,11 @@
                         out.print("<div class=line></div><br>");
                         for (int i = 0; i < da.size(); i++) {
                             Thread temp = da.get(i);
-                    %>
-                    <a href="post.jsp?tid=<%=temp.getThreadId()%>&id=<%=index%>">
-                        <div class="contentth"><%=temp.getTitle()%></div>
-                    </a>
-                    <%
+                %>
+                            <a href="post.jsp?tid=<%=temp.getThreadId()%>&id=<%=index%>">
+                                <div class="contentth"><%=temp.getTitle()%></div>
+                            </a>
+                <%
                         }
                     } else if (carif != null) {
                         ArrayList<User> dat = CtrlAccount.getAllSearch(carif);
@@ -63,23 +63,23 @@
                         out.print("<div class=line></div><br>");
                         for (int i = 0; i < dat.size(); i++) {
                             User temp = dat.get(i);
-                     %>
-                       <div class="discussionbar">
-                        <div class="discussionbarlogo" style="
-                             background-image: url('image/games/<%=temp.getImageUrl()%>');
-                             background-repeat: no-repeat;
-                             background-size: contain;">
-                        </div>
-                        <a href="profile.jsp?uid=<%=temp.getUserId()%>" class="discussiontitle"><%=temp.getUsername()%></a>
-                        </div>
-                        <%
+                %>
+                            <div class="headpost" style="margin-bottom: 5px">
+                                <div class="profile_post" style="
+                                    background-image: url('image/user/<%=temp.getImageUrl()%>');
+                                    background-repeat: no-repeat;
+                                    background-size: contain;">
+                                </div>
+                                <div class="profile_namepost">
+                                    <a href="profile.jsp?uid=<%=temp.getUserId()%>" class="discussiontitle" style="margin-top: 4px"><%=temp.getUsername()%></a>
+                                </div>
+                            </div>
+                <%
                             }
                         }
-%>
-
+                %>
                 </div>
             </div>
-
         </div>
         <jsp:include page="footer.jsp" flush="true" />
     </body>
