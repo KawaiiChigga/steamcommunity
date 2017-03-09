@@ -38,7 +38,8 @@
                 <input style="background-color:rgb(15,25,40); color:white;" type="text" class="form-control" id="usr" name="txtModerator" placeholder="enter moderator id"/><br/>
                 Image:<br/>
                 <input type="file" style="width:500px;color:black" name="txtImg" /><br/><br/>
-                <input type="submit" class="btn btn-default" style="background-color:rgb(0,100,0);width:25%; color:white; float:right; font-family: lato; font-size: 16px;" value="Submit"><br/>
+
+                <input type="submit" class="btn btn-default" style="background-color:rgb(27,40,56); margin-top:5px;color:white; font-family: lato; font-size: 16px;" value="Create Discussion"><br/>
                 </form>
             </div>
         </div>

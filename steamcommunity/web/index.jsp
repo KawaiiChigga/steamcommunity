@@ -60,7 +60,7 @@
                             if (u.getUserId() == 1) {
                     %>
                             <div class="contenthomeright">
-                                <a href="addDiscussion.jsp"><input type="button" value="Create New Discussion"></a>
+                                <a href="addDiscussion.jsp"><input type="submit" class="btn btn-default" style="background-color:rgb(27,40,56); margin-top:5px;color:white; float:right; font-family: lato; font-size: 16px;" value="Create New Discussion"></a>
                             </div>
                     <%
                             }
