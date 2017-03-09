@@ -351,6 +351,7 @@ a, a:hover{
     padding: 10px;
 }
 .profile_content_right {
+    padding-top:15px;
     width: 254px;
     float: left;
 }

@@ -89,7 +89,10 @@
                     %>
                 </div>
                 <div class="profile_content_right">
-                    
+                    <form action="search.jsp" method="GET">
+                        <input type="text" name="search" placeholder="Search Friends" />
+                        <input type="submit" value="Search" />
+                    </form>
                     <%
                         if (ses != null) {
                             if (ses.getUsername().equals(req.getUsername())) {
