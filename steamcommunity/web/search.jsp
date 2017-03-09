@@ -48,16 +48,16 @@
                             out.print("<h3 style=color:#66C0F4>Keyword: " + carithread + "</h3>");
                             out.print("<div class=line></div><br>");
                             for (int i = 0; i < da.size(); i++) {
-                    %>
-                            <div class="discussionbar">
-                                <%
                                 Thread temp = da.get(i);
-                                out.print(temp.getTitle());
-                            }
-                            
+                    %>
+                            <a href="post.jsp?tid=<%=temp.getThreadId()%>&id=<%=index%>">
+                                <div class="contentth"><%=temp.getTitle()%></div>
+                            </a>
+                    <%
+                                } 
                             }
                     %>
-                            </div>
+                            
                 </div>
             </div>
 
