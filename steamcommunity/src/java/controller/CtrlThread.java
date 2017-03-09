@@ -25,7 +25,7 @@ public class CtrlThread {
         Session session = Factory.getInstance().openSession();
         ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from Thread where discussionID=? and categoryType=?");
+        Query q = session.createQuery("from Thread where discussionID=? and categoryType=? order by isPinned DESC, publishDateTime ASC");
         q.setInteger(0, disID);
         q.setInteger(1, category);
         

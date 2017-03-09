@@ -39,12 +39,20 @@ public class NewThreadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         User cur = CtrlAccount.getUser((Integer) request.getSession().getAttribute("currentsession"));
+        byte pinned = 0;
+        String judul = request.getParameter("txtTitle");
+        try {
+            pinned = (byte) Integer.parseInt(request.getParameter("rbPinned"));
+            judul = "PINNED: " + judul;
+        } catch (Exception e) {
+            
+        }
         Thread u = new Thread(
                 CtrlDiscussion.getDisc(Integer.parseInt(request.getParameter("idDiscussion"))), 
                 cur, 
-                request.getParameter("txtTitle"), 
+                judul, 
                 new Date(), 
-                (byte) 0, 
+                pinned, 
                 (byte) Integer.parseInt(request.getParameter("rbPost"))
         );
         

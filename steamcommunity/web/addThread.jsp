@@ -1,3 +1,5 @@
+<%@page import="model.Discussion"%>
+<%@page import="controller.CtrlDiscussion"%>
 <%@page import="model.User"%>
 <%@page import="controller.CtrlAccount"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,8 +22,20 @@
                 <textarea style="resize:none;background-color:rgb(15,25,40); color:white;" class="form-control" rows="10" id="comment" name="txtContent" placeholder="say something"></textarea>
                 <br/>
                 Post In:<br/>
-                <input type="radio" name="rbPost" value="1" />General Discussion <br/>
+                <input type="radio" name="rbPost" value="1" checked="true"/>General Discussion <br/>
                 <input type="radio" name="rbPost" value="2" />Trading <br/>
+                <%
+                    User u = CtrlAccount.getUser((Integer) session.getAttribute("currentsession"));
+                    if (u != null) {
+                        if (u.getDiscussion().getDiscussionId() == Integer.parseInt(request.getParameter("id"))) {
+                        %>
+                            Pinned Post:<br/>
+                            <input type="radio" name="rbPinned" value="1"/>True<br/>
+                            <input type="radio" name="rbPinned" value="0" checked="true"/>False<br/>
+                        <%
+                        }
+                    } 
+                %>
                 <input type="submit" class="btn btn-default" style="background-color:rgb(0,100,0);width:25%; color:white; float:right; font-family: lato; font-size: 16px;" value="Post Thread">
                 <input type="hidden" name="idDiscussion" value="<%=request.getParameter("id")%>"/>
                 </form>
