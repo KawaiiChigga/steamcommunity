@@ -90,7 +90,8 @@
                 </div>
                 <div class="profile_content_right">
                     <form action="search.jsp" method="GET">
-                        <input type="text" name="search" placeholder="Search Friends" />
+                        <input type="text" name="searchfriend" placeholder="Search Friends" />
+                        
                         <input type="submit" value="Search" />
                     </form>
                     <%

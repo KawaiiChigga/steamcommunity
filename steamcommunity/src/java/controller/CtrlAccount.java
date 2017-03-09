@@ -55,6 +55,20 @@ public class CtrlAccount{
         }
         return u;
     }
+    public static ArrayList<User> getAllSearch(String cari)
+    {
+        Session session = Factory.getInstance().openSession();
+        ArrayList<User> hasil = null;
+        Transaction tx = session.beginTransaction();
+        Query q = session.createQuery("from User where username like'%"+cari+"%'");
+        hasil = (ArrayList<User>) q.list();
+        
+        tx.commit();
+        session.close();
+        
+        return hasil;
+    }
+    
     public static boolean edit(User u) {
         Session session = Factory.getInstance().openSession();
         Transaction tx = session.beginTransaction();
