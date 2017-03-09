@@ -16,7 +16,7 @@
 </form>
 <br/>
 <div class="contentbox">
-    <a href="addThread.jsp?id=<%=d.getDiscussionId()%>"><input type="button" value="Start a new Topic"></a>
+    <a href="addThread.jsp?id=<%=d.getDiscussionId()%>"><input type="submit" class="btn btn-default" style="background-color:rgb(27,40,56); margin-left:45px; margin-top:5px;color:white; font-family: lato; font-size: 16px;" value="Start a new topic"></a>
 </div>
 <br/>
 <div class="contentbox">

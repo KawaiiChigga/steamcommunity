@@ -39,7 +39,7 @@
                 <input type="text" style="width:500px;color:black" name="txtModerator" /><br/><br/>
                 Image:<br/>
                 <input type="file" style="width:500px;color:black" name="txtImg" /><br/><br/>
-                <input type="submit" value="Submit" style="color:black"><br/>
+                <input type="submit" class="btn btn-default" style="background-color:rgb(27,40,56); margin-top:5px;color:white; font-family: lato; font-size: 16px;" value="Create Discussion"><br/>
                 </form>
             </div>
         </div>
