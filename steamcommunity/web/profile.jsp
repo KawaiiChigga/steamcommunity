@@ -50,8 +50,8 @@
                             
                         } else if (ses.getUsername().equals(req.getUsername())) {
                     %>
-                            <a href="editprofile.jsp"><input type="button" value="Edit Profile"></a><br/><br/>
-                            <a href="logout?logout=yes"><input type="button" value="Log Out"></a><br/><br/>
+                            <a href="editprofile.jsp"><input type="button" class="btn btn-default" style="background-color:rgb(27,40,56); width:75%;color:white; float:right; font-family: lato; font-size: 16px;" value="Edit Profile"></a><br/><br/>
+                            <a href="logout?logout=yes"><input type="button" class="btn btn-default" style="background-color:rgb(27,40,56); width:75%; margin-top:5px;color:white; float:right; font-family: lato; font-size: 16px;" value="Log Out"></a><br/><br/>
                             
                     <%  
                         } else{
