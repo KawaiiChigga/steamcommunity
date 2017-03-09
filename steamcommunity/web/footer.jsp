@@ -11,7 +11,4 @@
     <div class="links">
         <a href="#">Privacy Policy</a> | <a href="#">Legal</a> | <a href="#">Steam Subscriber Agreement</a>
     </div>
-    <%
-        System.out.println("HAI : " + Factory.getInstance().getStatistics().toString());
-        %>
 </footer>
