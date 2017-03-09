@@ -63,21 +63,42 @@
                                         <a href="profile.jsp?uid=<%=usercom.getUserId()%>"><%= usercom.getUsername() %></a>
                                     </div>
                                 </div>
+                                    
                                 <div class="allpostcontent">
-                                    <text><%= posts.get(i).getMessage().replace("\n", "<br />") %></text> <br/>
+                                    <text>
+                                    <%= posts.get(i).getMessage().replace("\n", "<br />") %></text> <br/>
+                                    <%
+                                User u = CtrlAccount.getUser((Integer) session.getAttribute("currentsession"));
+                                if(u!=null){
+                                    if(u.getUserId()==posts.get(i).getUser().getUserId()){
+                                        %><p style="text-align: right; font-size: 13px;margin-bottom: -15px"><a href="#" style="color:white;">Edit Post</a></p><%
+                                    }
+                                }
+                               
+                                %>
                                     <p style="text-align: right; font-size: 13px;">#<%=i+1%></p>
                                 </div>
+                                
                             </div>
                         <%
                         }
                     %>
-                        <div class="form-group">
+                        <%
+                        User u = CtrlAccount.getUser((Integer) session.getAttribute("currentsession"));
+                                if(u!=null){
+                                    %>
+                                    <div class="form-group">
                             <form action="newPost" method="post"> <br/>
                                 <textarea style="resize:none;background-color:rgb(15,25,40); color:white;" class="form-control" rows="5" id="comment" name="postcontent" placeholder="say something"></textarea><br/>
                                 <input type="submit" class="btn btn-default" style="background-color:rgb(0,100,0);width:25%; color:white; float:right; font-family: lato; font-size: 16px;" value="Post Reply">
                                 <input type="hidden" name="threadid" value="<%= currentThread.getThreadId() %>">
                             </form>
-                        </div>
+                        </div><%
+                                }
+                                else{
+                                    out.println("Please <a href='login.jsp' style='color:white;'>sign in</a> to post a comment");
+                                }
+                        %>
                     </div>
                     <div class="contentthreadright">
                         <div class="contentbox">
