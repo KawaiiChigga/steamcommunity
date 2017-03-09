@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
 import model.User;
 import network.Factory;
 import org.hibernate.Query;
@@ -19,17 +18,22 @@ public class CtrlAccount{
             u = (User) q.uniqueResult();
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
-        session.close();
         return u;
     }
     
     public static boolean createAccount(User u) {
         Session session = Factory.getInstance().openSession();
         Transaction tx = session.beginTransaction();
-        session.saveOrUpdate(u);
-        tx.commit();
-        session.close();
+        try {
+            session.saveOrUpdate(u);
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
         return true;
     }
     
@@ -46,8 +50,9 @@ public class CtrlAccount{
             tx.commit();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            session.close();
         }
-        session.close();
         return u;
     }
     public static boolean edit(User u) {
@@ -57,9 +62,9 @@ public class CtrlAccount{
             session.update(u);
             tx.commit();
         } catch (Exception e) {
-            e.printStackTrace();
-        } 
-        session.close();
+        } finally {
+            session.close();
+        }
         return true;
     }
 }

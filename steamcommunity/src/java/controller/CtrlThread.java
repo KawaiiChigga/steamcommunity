@@ -23,15 +23,19 @@ public class CtrlThread {
     public static ArrayList<Thread> getAllThread(Integer disID, Integer category)
     {
         Session session = Factory.getInstance().openSession();
-        ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from Thread where discussionID=? and categoryType=? order by isPinned DESC, publishDateTime ASC");
-        q.setInteger(0, disID);
-        q.setInteger(1, category);
-        
-        hasil = (ArrayList<Thread>) q.list();
-        tx.commit();
-        session.close();
+        ArrayList<Thread> hasil = null;
+        try {
+            Query q = session.createQuery("from Thread where discussionID=? and categoryType=? order by isPinned DESC, publishDateTime ASC");
+            q.setInteger(0, disID);
+            q.setInteger(1, category);
+
+            hasil = (ArrayList<Thread>) q.list();
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
         return hasil;
     }
     
@@ -46,8 +50,9 @@ public class CtrlThread {
             th = (Thread) q.uniqueResult();
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
-        session.close();
         return th;
         
         
@@ -55,16 +60,16 @@ public class CtrlThread {
      public static ArrayList<Thread> getAllSearch(String cari, Integer index)
     {
         Session session = Factory.getInstance().openSession();
-        ArrayList<Thread> hasil = null;
         Transaction tx = session.beginTransaction();
+        ArrayList<Thread> hasil = null;
         try {
             Query q = session.createQuery("from Thread where discussionID="+index+" and title like'%"+cari+"%'");
             hasil = (ArrayList<Thread>) q.list();
-        } catch (Exception e ){
-            e.printStackTrace();
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
         }
-        tx.commit();
-        session.close();
         
         return hasil;
     }
@@ -72,10 +77,15 @@ public class CtrlThread {
     {
         Session session = Factory.getInstance().openSession();
         Transaction tx = session.beginTransaction();
-        session.saveOrUpdate(t);
-        Thread th = t;
-        tx.commit();
-        session.close();
+        Thread th = null;
+        try {
+            session.saveOrUpdate(t);
+            th = t;
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
         return th;
     }
 }

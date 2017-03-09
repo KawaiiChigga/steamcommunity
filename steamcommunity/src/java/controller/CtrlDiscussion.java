@@ -10,9 +10,7 @@ import model.Discussion;
 import network.Factory;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -23,26 +21,32 @@ public class CtrlDiscussion {
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Discussion> hasil = null;
-        Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from Discussion");
-        hasil = (ArrayList<Discussion>) q.list();
-        
-        tx.commit();
-        session.close();
-        
+        try {
+            Transaction tx = session.beginTransaction();
+            Query q = session.createQuery("from Discussion");
+            hasil = (ArrayList<Discussion>) q.list();
+
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
         return hasil;
     }
     public static ArrayList<Discussion> getAllSearch(String cari)
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Discussion> hasil = null;
-        Transaction tx = session.beginTransaction();
-        Query q = session.createQuery("from Discussion where gamename like'%"+cari+"%' or description like'%"+cari+"%'");
-        hasil = (ArrayList<Discussion>) q.list();
-        
-        tx.commit();
-        session.close();
-        
+        try {
+            Transaction tx = session.beginTransaction();
+            Query q = session.createQuery("from Discussion where gamename like'%"+cari+"%' or description like'%"+cari+"%'");
+            hasil = (ArrayList<Discussion>) q.list();
+
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
         return hasil;
     }
     public static Discussion getDisc(Integer did) {
@@ -56,18 +60,24 @@ public class CtrlDiscussion {
             d = (Discussion) q.uniqueResult();
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
-        session.close();
         return d;
     }
     public static Discussion insertDiscussion(Discussion d)
     {
         Session session = Factory.getInstance().openSession();
         Transaction tx = session.beginTransaction();
-        session.saveOrUpdate(d);
-        Discussion temp = d;
-        tx.commit();
-        session.close();
+        Discussion temp = null;
+        try {
+            session.saveOrUpdate(d);
+            temp = d;
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
         return temp;
     }
 }

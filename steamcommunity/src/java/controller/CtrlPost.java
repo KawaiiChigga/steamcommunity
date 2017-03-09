@@ -19,18 +19,24 @@ public class CtrlPost {
             p = (Post) q.uniqueResult();
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
-        session.close();
         return p;
     }
     
     public static Post insertPost(Post p) {
         Session session = Factory.getInstance().openSession();
         Transaction tx = session.beginTransaction();
-        session.saveOrUpdate(p);
-        Post post = p;
-        tx.commit();
-        session.close();
+        Post post = null;
+        try {
+            session.saveOrUpdate(p);
+            post = p;
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
         return post;
     }
     
@@ -45,8 +51,9 @@ public class CtrlPost {
             p = (ArrayList<Post>) q.list();
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
-        session.close();
         return p;
     }
     
@@ -61,8 +68,9 @@ public class CtrlPost {
             p = (ArrayList<Post>) q.list();
             tx.commit();
         } catch (Exception e) {
+        } finally {
+            session.close();
         }
-        session.close();
         return p;
     }
 }
