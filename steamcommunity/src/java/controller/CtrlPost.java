@@ -73,4 +73,17 @@ public class CtrlPost {
         }
         return p;
     }
+    
+    public static boolean updatePost(Post p) {
+        Session session = Factory.getInstance().openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            session.update(p);
+            tx.commit();
+        } catch (Exception e) {
+        } finally {
+            session.close();
+        }
+        return true;
+    }
 }
