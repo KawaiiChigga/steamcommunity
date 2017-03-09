@@ -76,7 +76,12 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User u = new User(
+        String pass = request.getParameter("txtPassword");
+        String rpass = request.getParameter("txtRePassword");
+        String mail = request.getParameter("txtEmail");
+        String rmail = request.getParameter("txtReEmail");
+        if(pass.equals(rpass) && mail.equals(rmail)){
+            User u = new User(
                 request.getParameter("txtAccount"), 
                 request.getParameter("txtPassword"), 
                 request.getParameter("txtEmail"), 
@@ -91,6 +96,11 @@ public class RegisterServlet extends HttpServlet {
         
         CtrlAccount.createAccount(u);
         response.sendRedirect("index.jsp");
+        }
+        else{
+           response.sendRedirect("join.jsp"); 
+        }
+        
 //        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 //        rd.forward(request, response);
     }

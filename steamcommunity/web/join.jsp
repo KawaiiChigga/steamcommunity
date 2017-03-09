@@ -10,7 +10,7 @@
             <div class="content">
                 <h2>Create an Account</h2>
                 <div class="accountbox">
-                    <form action="register" method="POST" onsubmit="return validasi()">
+                    <form action="register" method="POST">
                         <table>
                             <tr><td>Create a Steam account name<br/>
                                     <input type="text" name="txtAccount" required/></td></tr>
@@ -192,26 +192,7 @@
                         <input type="checkbox" name="checkAgreement" required/> I agree AND am 13 years of age or older<br/>
                         <input type="submit" value="Create my account"/>
                     </form>
-                    <script>
-                    function validasi() {
-                    var inpPass = document.getElementById("txtPassword");
-                    var inpRePass = document.getElementById("txtRePassword");
-                    var inpMail = document.getElementById("txtEmail");
-                    var inpReMail = document.getElementById("txtReEmail");
-                    if (inpPass != inpRePass) {
-                        return false;
-                        alert("Password didn't match");
-                    }
-                    if (inpMail != inpReMail) {
-                        return false;
-                        alert("Email didn't match");
-                    }
-                    if(!this.form.checkAgreement.checked){
-                        alert('You must agree to the terms first.');
-                        return false;
-                    }
-                    }
-                    </script>
+                    
                 </div>
                 <div class="joinbox">
                     <h3 style="color: #66C0F4">WHY JOIN STEAM?</h3>
