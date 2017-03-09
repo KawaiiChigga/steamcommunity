@@ -27,19 +27,18 @@
             }
         %>
         <div class="content">
-            <h3 style="color: #FFFFFF">New Discussion</h3><br/><br/>
             <div style="border: solid 1px #223245; background: #223245;text-align: justify; line-height: 23px; color: white; width: 700px; height:700px; margin-left: 50px;margin-top: 20px ; padding-top: 5px;padding-left: 30px; padding-right: 30px">
                 <p style="color:white">Start a new discussion</p><hr/> 
                 <form action="adddiscussion" method="POST" enctype="multipart/form-data">
                 Game Name:<br/>
-                <input type="text" style="width:500px;color:black" name="txtGameName" /><br/>
+                <input style="background-color:rgb(15,25,40); color:white;" type="text" class="form-control" id="usr" name="txtGameName" placeholder="enter game name"/><br/>
                 Description:<br/>
-                <textarea name="txtDescription" rows="10" cols="20" style="width:500px;color:black"></textarea><br/>
+                <textarea style="resize:none;background-color:rgb(15,25,40); color:white;" class="form-control" rows="10" id="comment" name="txtDescription" placeholder="say something about this discussion"></textarea><br/>
                 ID Moderator:<br/>
-                <input type="text" style="width:500px;color:black" name="txtModerator" /><br/><br/>
+                <input style="background-color:rgb(15,25,40); color:white;" type="text" class="form-control" id="usr" name="txtModerator" placeholder="enter moderator id"/><br/>
                 Image:<br/>
                 <input type="file" style="width:500px;color:black" name="txtImg" /><br/><br/>
-                <input type="submit" value="Submit" style="color:black"><br/>
+                <input type="submit" class="btn btn-default" style="background-color:rgb(0,100,0);width:25%; color:white; float:right; font-family: lato; font-size: 16px;" value="Submit"><br/>
                 </form>
             </div>
         </div>

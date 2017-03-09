@@ -136,6 +136,7 @@ a, a:hover{
     padding: 9px;
     line-height: 25px;
     float:left;
+    min-height: 400px;
 }
 .firstpost {
     background-color: rgba( 84, 133, 183, 0.4);

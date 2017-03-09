@@ -17,7 +17,7 @@ import org.hibernate.Transaction;
  * @author Sujana
  */
 public class CtrlDiscussion {
-    public ArrayList<Discussion> getAllDiscussion()
+    public static ArrayList<Discussion> getAllDiscussion()
     {
         Session session = Factory.getInstance().openSession();
         ArrayList<Discussion> hasil = null;
