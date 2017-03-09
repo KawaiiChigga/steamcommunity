@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import model.User;
 import network.Factory;
 import org.hibernate.Query;
