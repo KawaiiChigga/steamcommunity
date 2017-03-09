@@ -139,6 +139,27 @@
                                     </a>
                         <%
                                 }
+                            } else {
+                                ArrayList<Friends> list = CtrlFriends.getFriends(req.getUserId(), "userID", 0);
+                                out.println("<h4>Friends " + list.size() + "</h4>");
+                                for (int i = 0; i < list.size(); i++) {
+                                    if (list.get(i).getStatus() != new Byte((byte) 0)) {
+                                        User a = CtrlAccount.getUser(list.get(i).getId().getFriendId());
+                        %>
+                                        <a href="profile.jsp?uid=<%=a.getUserId()%>">
+                                            <div class="friendlist">
+                                                <div class="friendlistdisplay" style="
+                                                    background-image: url('image/user/<%=a.getImageUrl()%>'); 
+                                                    background-repeat: no-repeat;
+                                                    background-size: contain"></div>
+                                                <div class="friendlistusername">
+                                                    <%=a.getUsername()%><br>
+                                                </div>
+                                            </div>
+                                        </a>
+                        <%
+                                    }
+                                }
                             }
                         } else {
                             ArrayList<Friends> list = CtrlFriends.getFriends(req.getUserId(), "userID", 0);

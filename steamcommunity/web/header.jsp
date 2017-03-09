@@ -1,3 +1,4 @@
+<%@page import="network.Factory"%>
 <%@page import="controller.CtrlAccount"%>
 <%@page import="model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +13,7 @@
     </div>
     <div class="loginbutton">
         <%
+            System.out.println("HAI : " + Factory.getInstance().getStatistics().toString());
             Integer uid = (Integer) session.getAttribute("currentsession");
             if (uid == null) {
                 out.println("<a href='login.jsp'>login</a>");

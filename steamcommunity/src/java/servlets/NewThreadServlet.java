@@ -43,7 +43,9 @@ public class NewThreadServlet extends HttpServlet {
         String judul = request.getParameter("txtTitle");
         try {
             pinned = (byte) Integer.parseInt(request.getParameter("rbPinned"));
-            judul = "PINNED: " + judul;
+            if (pinned == (byte) 1) {
+                judul = "PINNED: " + judul;
+            }
         } catch (Exception e) {
             
         }
