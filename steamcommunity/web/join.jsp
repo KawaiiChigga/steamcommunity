@@ -10,26 +10,26 @@
             <div class="content">
                 <h2>Create an Account</h2>
                 <div class="accountbox">
-                    <form action="register" method="POST">
+                    <form action="register" method="POST" onsubmit="return validasi()">
                         <table>
                             <tr><td>Create a Steam account name<br/>
-                                    <input type="text" name="txtAccount"/></td></tr>
+                                    <input type="text" name="txtAccount" required/></td></tr>
                         </table>
                         <hr/>
                         <table>
                             <tr><td>Choose a password<br/>
-                                    <input type="password" name="txtPassword"/></td></tr>
+                                    <input type="password" name="txtPassword" required/></td></tr>
                             <tr><td>Re-enter password<br/>
-                                    <input type="password" name="txtRePassword"/></td></tr>
+                                    <input type="password" name="txtRePassword" required/></td></tr>
                         </table>
                         <hr/>
                         <table>
                             <tr><td>Your current email address<br/>
-                                    <input type="email" name="txtEmail"/></td>
+                                    <input type="email" name="txtEmail" required/></td>
                                 <td>Your email address is used to confirm purchases and help you 
                                     manage access to your Steam account.</td></tr>
                             <tr><td>Re-enter email<br/>
-                                    <input type="email" name="txtReEmail"/></td>
+                                    <input type="email" name="txtReEmail" required/></td>
                                 <td>Steam will send a confirmation email to this account. Please 
                                     follow the link in the mail to verify your email account with Steam.</td></tr>
                         </table>
@@ -189,9 +189,29 @@
                             <p>This Agreement was last updated on January 1st, 2017 ("Revision Date"). If you were a Subscriber before the Revision Date, it replaces your existing agreement with Valve or Valve SARL on the day that you explicitly accept it. If you prefer to continue using Steam and your existing Subscriptions under the version of the Agreement in effect prior to the Revision Date, you are free to do so.</p>
                         </div>
                         <br/>
-                        <input type="checkbox" name="checkAgreement" /> I agree AND am 13 years of age or older<br/>
+                        <input type="checkbox" name="checkAgreement" required/> I agree AND am 13 years of age or older<br/>
                         <input type="submit" value="Create my account"/>
                     </form>
+                    <script>
+                    function validasi() {
+                    var inpPass = document.getElementById("txtPassword");
+                    var inpRePass = document.getElementById("txtRePassword");
+                    var inpMail = document.getElementById("txtEmail");
+                    var inpReMail = document.getElementById("txtReEmail");
+                    if (inpPass != inpRePass) {
+                        return false;
+                        alert("Password didn't match");
+                    }
+                    if (inpMail != inpReMail) {
+                        return false;
+                        alert("Email didn't match");
+                    }
+                    if(!this.form.checkAgreement.checked){
+                        alert('You must agree to the terms first.');
+                        return false;
+                    }
+                    }
+                    </script>
                 </div>
                 <div class="joinbox">
                     <h3 style="color: #66C0F4">WHY JOIN STEAM?</h3>
