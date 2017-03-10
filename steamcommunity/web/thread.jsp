@@ -15,7 +15,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="head.jsp" flush="true" />
-    <a href="thread.jsp"></a>
     </head>
     <body>
         <%

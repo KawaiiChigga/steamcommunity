@@ -17,9 +17,10 @@
             if (request.getParameter("postid") != null && request.getParameter("id") != null) {
                 cur = CtrlPost.getPost(Integer.parseInt(request.getParameter("postid")));
                 disc = Integer.parseInt(request.getParameter("id"));
-                if (now.getDiscussion().getDiscussionId() == disc) {
-                    moderator = true;
-                    System.out.println("hai");
+                if (now.getDiscussion() != null) {
+                    if (now.getDiscussion().getDiscussionId() == disc) {
+                        moderator = true;
+                    }
                 }
                 if (cur.getUser().getUserId() != now.getUserId() && !moderator) {
                     return;

@@ -13,7 +13,6 @@
     </div>
     <div class="loginbutton">
         <%
-            System.out.println("HAI : " + Factory.getInstance().getStatistics().toString());
             Integer uid = (Integer) session.getAttribute("currentsession");
             if (uid == null) {
                 out.println("<a href='login.jsp'>login</a>");

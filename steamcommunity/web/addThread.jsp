@@ -27,12 +27,14 @@
                 <%
                     User u = CtrlAccount.getUser((Integer) session.getAttribute("currentsession"));
                     if (u != null) {
-                        if (u.getDiscussion().getDiscussionId() == Integer.parseInt(request.getParameter("id"))) {
-                        %>
-                            Pinned Post:<br/>
-                            <input type="radio" name="rbPinned" value="1"/>True<br/>
-                            <input type="radio" name="rbPinned" value="0" checked="true"/>False<br/>
-                        <%
+                        if (u.getDiscussion() != null) {
+                            if (u.getDiscussion().getDiscussionId() == Integer.parseInt(request.getParameter("id"))) {
+                            %>
+                                Pinned Post:<br/>
+                                <input type="radio" name="rbPinned" value="1"/>True<br/>
+                                <input type="radio" name="rbPinned" value="0" checked="true"/>False<br/>
+                            <%
+                            }
                         }
                     } 
                 %>

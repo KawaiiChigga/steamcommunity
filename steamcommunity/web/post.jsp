@@ -27,7 +27,7 @@
             User poster = CtrlAccount.getUser(currentThread.getUser().getUserId());
             User u = CtrlAccount.getUser((Integer) session.getAttribute("currentsession"));
             boolean moderator = false;
-            if (u.getDiscussion().getDiscussionId() != null) {
+            if (u.getDiscussion() != null) {
                 if (u.getDiscussion().getDiscussionId() == Integer.parseInt(request.getParameter("id"))) {
                     moderator = true;
                 }

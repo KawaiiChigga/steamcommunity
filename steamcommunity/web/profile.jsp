@@ -57,7 +57,7 @@
                         } else{
                             if (!CtrlFriends.checkFriend(ses.getUserId(), req.getUserId())) {
                     %>
-                                <a href="friend?friendid=<%=req.getUserId()%>&status=save"><input type="button" value="Add Friend"></a><br/><br/>
+                                <a href="friend?friendid=<%=req.getUserId()%>&status=save"><input type="button" class="btn btn-default" style="background-color:rgb(27,40,56); width:75%; margin-top:5px;color:white; float:right; font-family: lato; font-size: 16px;" value="Add Friend"></a><br/><br/>
                     <%  
                             } 
                         }
